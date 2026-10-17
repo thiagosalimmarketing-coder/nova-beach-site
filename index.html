@@ -162,6 +162,24 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 .plan-card.featured .plan-cta{background:var(--navy);color:#fff}
 .plan-cta:hover{transform:scale(1.02)}
 
+/* ===== EXTRAS ===== */
+.extras{background:#fff;position:relative}
+.extras-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:40px}
+.extra-card{background:var(--sand);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;transition:all .18s;display:flex;flex-direction:column}
+.extra-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--navy-2)}
+.extra-card.highlight{background:var(--navy);color:#fff;border-color:var(--navy)}
+.extra-card.highlight .extra-title,.extra-card.highlight .extra-price,.extra-card.highlight .extra-price strong{color:#fff}
+.extra-card.highlight .extra-desc{color:rgba(255,255,255,0.8)}
+.extra-card.highlight .extra-tag{background:var(--accent);color:var(--navy)}
+.extra-tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:rgba(26,48,102,0.08);color:var(--navy);padding:4px 10px;border-radius:999px;margin-bottom:14px;align-self:flex-start}
+.extra-title{font-size:19px;font-weight:800;letter-spacing:-0.02em;color:var(--navy);margin-bottom:8px;line-height:1.2}
+.extra-desc{font-size:14px;color:var(--mute);line-height:1.5;margin-bottom:18px;flex:1}
+.extra-price{display:flex;align-items:baseline;gap:4px;font-family:var(--mono);font-size:13px;color:var(--mute);margin-bottom:16px}
+.extra-price strong{font-size:22px;color:var(--navy);font-weight:800;letter-spacing:-0.02em}
+.extra-cta{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:800;color:var(--navy);border-bottom:2px solid var(--accent);padding-bottom:2px;transition:gap .15s;align-self:flex-start;cursor:pointer}
+.extra-cta:hover{gap:10px}
+.extra-card.highlight .extra-cta{color:var(--accent);border-color:var(--accent)}
+
 /* ===== ESTRUTURA ===== */
 .estrutura{background:var(--sand)}
 .estr-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
@@ -269,6 +287,7 @@ fbq('track','PageView');
     <div class="nav-links">
       <a href="#modalidades">Modalidades</a>
       <a href="#planos">Planos</a>
+      <a href="#extras">Extras</a>
       <a href="#estrutura">Estrutura</a>
       <a href="#professores">Professores</a>
       <a href="#contato">Contato</a>
@@ -374,14 +393,14 @@ fbq('track','PageView');
         <div class="plan-label">Beach Tennis · 1x/semana</div>
         <div class="plan-name">Plano 1×</div>
         <div class="plan-price">
-          <span class="plan-price-value">R$ 350</span>
+          <span class="plan-price-value">R$ 325</span>
           <span class="plan-price-period">/mês</span>
         </div>
         <ul class="plan-features">
           <li>1 aula fixa por semana</li>
           <li>Progressão por nível</li>
-          <li>Plano semestral</li>
-          <li>Economiza R$ 420 vs. mensal</li>
+          <li>Semestral · ou R$ 275/mês no anual</li>
+          <li>Mensal R$ 420 · Trimestral R$ 375</li>
         </ul>
         <a href="#" class="plan-cta" data-cta="plan-bt-1x">Garantir 1× / semana</a>
       </div>
@@ -391,14 +410,14 @@ fbq('track','PageView');
         <div class="plan-label">Beach Tennis · 2x/semana</div>
         <div class="plan-name">Plano 2×</div>
         <div class="plan-price">
-          <span class="plan-price-value">R$ 640</span>
+          <span class="plan-price-value">R$ 715</span>
           <span class="plan-price-period">/mês</span>
         </div>
         <ul class="plan-features">
           <li>2 aulas fixas por semana</li>
           <li>Evolução mais rápida</li>
-          <li>Plano semestral</li>
-          <li>Economiza R$ 960 vs. mensal</li>
+          <li>Plano trimestral</li>
+          <li>Mensal avulso R$ 800/mês</li>
         </ul>
         <a href="#" class="plan-cta" data-cta="plan-bt-2x">Garantir 2× / semana</a>
       </div>
@@ -407,16 +426,59 @@ fbq('track','PageView');
         <div class="plan-label">Clubinho semestral</div>
         <div class="plan-name">Clubinho</div>
         <div class="plan-price">
-          <span class="plan-price-value">R$ 170</span>
+          <span class="plan-price-value">R$ 195</span>
           <span class="plan-price-period">/mês</span>
         </div>
         <ul class="plan-features">
-          <li>Acesso livre às quadras</li>
-          <li>Jogos todos os dias</li>
-          <li>Plano semestral</li>
-          <li>Economiza R$ 420 em 6 meses</li>
+          <li>Acesso livre + jogos todo dia</li>
+          <li>Sem aula, sem professor</li>
+          <li>Semestral · ou R$ 155/mês no anual</li>
+          <li>Trimestral R$ 245/mês</li>
         </ul>
         <a href="#" class="plan-cta" data-cta="plan-clubinho">Entrar no Clubinho</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXTRAS -->
+<section class="section extras" id="extras">
+  <div class="section-inner">
+    <div class="section-eyebrow">Experiências extras</div>
+    <h2 class="section-title">Além dos planos regulares.</h2>
+    <p class="section-sub">Day Use, aluguel avulso, aula com atleta Top 21 do mundo e pacote pra empresas. Tem opção pra todo tipo de agenda.</p>
+
+    <div class="extras-grid">
+      <div class="extra-card highlight">
+        <div class="extra-tag">🏆 Experiência única</div>
+        <div class="extra-title">Aula com Marta Magalhães</div>
+        <div class="extra-desc">#21 do mundo e #1 de Portugal no Beach Tennis. Aula avulsa com uma das maiores jogadoras do circuito mundial.</div>
+        <div class="extra-price"><strong>R$ 100</strong>&nbsp;/ aula</div>
+        <a href="#" class="extra-cta" data-cta="extra-marta">Agendar com Marta →</a>
+      </div>
+
+      <div class="extra-card">
+        <div class="extra-tag">Day Use</div>
+        <div class="extra-title">Day Use Individual</div>
+        <div class="extra-desc">Acesso avulso às quadras por 1 dia inteiro. Traga a galera e curta. Combo com raquete sai R$ 70.</div>
+        <div class="extra-price"><strong>R$ 45</strong>&nbsp;/ pessoa</div>
+        <a href="#" class="extra-cta" data-cta="extra-day-use">Reservar Day Use →</a>
+      </div>
+
+      <div class="extra-card">
+        <div class="extra-tag">Quadra avulsa</div>
+        <div class="extra-title">Aluguel de Quadra 1h</div>
+        <div class="extra-desc">Quer jogar com seu grupo em horário livre, sem aula? Reserve a quadra por hora. Depende do dia e horário.</div>
+        <div class="extra-price"><strong>R$ 240</strong>&nbsp;/ hora</div>
+        <a href="#" class="extra-cta" data-cta="extra-quadra">Reservar quadra →</a>
+      </div>
+
+      <div class="extra-card">
+        <div class="extra-tag">Empresas</div>
+        <div class="extra-title">Day Use Empresarial</div>
+        <div class="extra-desc">Pacote pra integração/confraternização de empresa. Fala com a gente e a gente monta o Day Use pro seu time.</div>
+        <div class="extra-price"><strong>R$ 65</strong>&nbsp;/ pessoa</div>
+        <a href="#" class="extra-cta" data-cta="extra-empresarial">Montar Day Use →</a>
       </div>
     </div>
   </div>
@@ -654,6 +716,10 @@ fbq('track','PageView');
     'plan-bt-1x':       '/site/bt-1x',
     'plan-bt-2x':       '/site/bt-2x',
     'plan-clubinho':    '/site/clubinho',
+    'extra-marta':      '/site/experimental',
+    'extra-day-use':    '/site/day-use-individual',
+    'extra-quadra':     '/site/quadra',
+    'extra-empresarial':'/site/reservas',
     'cta-final-wa':     '/site/bt'
   };
 
