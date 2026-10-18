@@ -193,6 +193,9 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 .sponsor-name{font-size:14px;font-weight:800;letter-spacing:-0.01em;color:#fff;line-height:1.2}
 .sponsor-item img{max-width:100%;max-height:60px;width:auto;height:auto;object-fit:contain;transition:transform .18s}
 .sponsor-item:hover img{transform:scale(1.06)}
+/* Martinez: corta o selo "20 ANOS" (direita da logo) */
+.sponsor-item.sp-mda img{clip-path:inset(0 18% 0 0);max-height:70px;transform-origin:left center}
+.sponsor-item.sp-mda:hover img{transform:scale(1.06) translateX(-4%)}
 
 /* ===== EXTRAS ===== */
 .extras{background:#fff;position:relative}
@@ -511,7 +514,7 @@ fbq('track','PageView');
         <div class="sponsor-item"><img src="assets/sponsors/mega-quadras.svg" alt="Mega Quadras" loading="lazy"></div>
         <div class="sponsor-item"><img src="assets/sponsors/nathan.png" alt="Nathan Ribeiro Imóveis" loading="lazy"></div>
         <div class="sponsor-item"><span class="sponsor-name">Clínica Juliano Pereira</span></div>
-        <div class="sponsor-item"><span class="sponsor-name">Adolpho Martinez</span></div>
+        <div class="sponsor-item sp-mda"><img src="assets/sponsors/martinez.png" alt="Martinez e Dorian Advogados" loading="lazy"></div>
         <!-- Set 2 (duplicado pra loop seamless) -->
         <div class="sponsor-item" aria-hidden="true"><img src="assets/sponsors/oba.svg" alt="" loading="lazy"></div>
         <div class="sponsor-item" aria-hidden="true"><img src="assets/sponsors/sicredi.svg" alt="" loading="lazy"></div>
@@ -526,7 +529,7 @@ fbq('track','PageView');
         <div class="sponsor-item" aria-hidden="true"><img src="assets/sponsors/mega-quadras.svg" alt="" loading="lazy"></div>
         <div class="sponsor-item" aria-hidden="true"><img src="assets/sponsors/nathan.png" alt="" loading="lazy"></div>
         <div class="sponsor-item" aria-hidden="true"><span class="sponsor-name">Clínica Juliano Pereira</span></div>
-        <div class="sponsor-item" aria-hidden="true"><span class="sponsor-name">Adolpho Martinez</span></div>
+        <div class="sponsor-item sp-mda" aria-hidden="true"><img src="assets/sponsors/martinez.png" alt="" loading="lazy"></div>
       </div>
     </div>
 
