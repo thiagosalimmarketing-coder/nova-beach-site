@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>CT NB360 · Centro de Treinamento de Alto Rendimento · Nova Beach Campinas</title>
+<meta name="description" content="Programa 360° de alto rendimento em Beach Tennis: técnico-tático, preparação física, fisioterapia e psicologia. Para atletas que querem profissionalizar e competir.">
+<meta name="theme-color" content="#1C2E6E">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="icon" type="image/png" href="nb360-logo.png">
+<link rel="apple-touch-icon" href="nb360-logo.png">
+<link rel="canonical" href="https://novabeachcampinas.com.br/nb360/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CT NB360 · Nova Beach Campinas">
+<meta property="og:title" content="CT NB360 · Centro de Treinamento de Alto Rendimento">
+<meta property="og:description" content="Programa 360° de alto rendimento: técnico-tático, preparação física, fisioterapia e psicologia. Atletas formados no top 30 mundial.">
+<meta property="og:url" content="https://novabeachcampinas.com.br/nb360/">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --green:#8FB800; --green-dark:#6F9000; --green-dim:rgba(143,184,0,0.12); --green-light:#F4FAD8;
+  --navy:#1C2E6E; --navy-2:#273e8f; --navy-dim:rgba(28,46,110,0.08);
+  --gold:#C8A96E;
+  --bg:#F8FBF0; --bg-card:#FFFFFF; --bg-alt:#EEF4DC;
+  --text:#1C2E6E; --text-body:#334155; --muted:#6B7280;
+  --border:rgba(28,46,110,0.10); --border-strong:rgba(28,46,110,0.18);
+  --shadow:0 6px 20px rgba(28,46,110,0.08); --shadow-lg:0 24px 60px rgba(28,46,110,0.15);
+  --radius:14px; --radius-lg:22px;
+  --font:'Outfit',system-ui,sans-serif;
+  --display:'Bebas Neue',sans-serif;
+  --maxw:1180px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text-body);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:rgba(248,251,240,0.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);box-shadow:0 1px 12px rgba(28,46,110,0.05)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav-logo{display:flex;align-items:center;gap:12px}
+.nav-logo img{height:38px;width:auto}
+.nav-back{font-size:13px;font-weight:600;color:var(--muted);display:inline-flex;align-items:center;gap:6px;transition:color .15s}
+.nav-back:hover{color:var(--navy)}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;background:var(--navy);color:#fff;border-radius:6px;font-size:13px;font-weight:700;letter-spacing:0.3px;transition:background .2s}
+.nav-cta:hover{background:#152256}
+@media(max-width:600px){.nav-back span{display:none}}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:84px 24px 72px;background:radial-gradient(ellipse 70% 60% at 15% 55%,rgba(143,184,0,0.1) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 85% 15%,rgba(28,46,110,0.05) 0%,transparent 60%),var(--bg)}
+.hero-inner{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:center}
+@media(max-width:900px){.hero{padding:56px 24px 48px}.hero-inner{grid-template-columns:1fr;gap:40px}}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--green-dim);border:1px solid rgba(143,184,0,0.3);padding:7px 16px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:var(--green-dark);margin-bottom:24px}
+.badge-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+h1{font-family:var(--display);font-size:clamp(54px,8.5vw,96px);line-height:0.93;letter-spacing:0.5px;color:var(--navy);margin-bottom:24px}
+h1 .pre{display:block;font-size:0.42em;color:var(--green);letter-spacing:4px;margin-bottom:10px}
+h1 em{color:var(--green);font-style:normal}
+.hero-sub{font-size:17px;color:var(--muted);max-width:500px;line-height:1.65;margin-bottom:36px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 26px;border-radius:8px;font-size:14px;font-weight:700;letter-spacing:0.3px;transition:transform .18s,box-shadow .18s,background .2s;cursor:pointer}
+.btn-primary{background:var(--navy);color:#fff;box-shadow:0 8px 24px rgba(28,46,110,0.25)}
+.btn-primary:hover{background:#152256;transform:translateY(-2px)}
+.btn-wa{background:#25D366;color:#fff;box-shadow:0 8px 24px rgba(37,211,102,0.3)}
+.btn-wa:hover{background:#1fb558;transform:translateY(-2px)}
+.btn-ghost{background:#fff;color:var(--navy);border:1.5px solid var(--border-strong)}
+.btn-ghost:hover{border-color:var(--navy);transform:translateY(-2px)}
+
+.hero-video{position:relative;aspect-ratio:9/16;width:100%;max-width:380px;justify-self:end;background:#000;border-radius:18px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-lg),0 0 0 6px rgba(143,184,0,0.08)}
+@media(max-width:900px){.hero-video{justify-self:center;max-width:320px}}
+.hero-video video{width:100%;height:100%;object-fit:cover;display:block}
+.hero-video .hv-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:68px;height:68px;background:rgba(255,255,255,.94);border-radius:50%;display:grid;place-items:center;z-index:3;transition:opacity .25s,transform .25s;box-shadow:0 8px 32px rgba(0,0,0,.35)}
+.hero-video .hv-play::after{content:'';border-left:22px solid var(--navy);border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:5px}
+.hero-video .hv-play:hover{transform:translate(-50%,-50%) scale(1.08)}
+.hero-video .hv-play.hidden{opacity:0;pointer-events:none}
+
+/* SECTION */
+.s{padding:84px 24px;position:relative}
+.s-inner{max-width:var(--maxw);margin:0 auto}
+.s-label{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:var(--green-dark);background:var(--green-dim);padding:6px 14px;border-radius:999px;margin-bottom:16px}
+.s-label::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%}
+.s h2{font-family:var(--display);font-size:clamp(36px,5.5vw,60px);line-height:0.98;letter-spacing:0.5px;color:var(--navy);margin-bottom:16px;max-width:760px}
+.s h2 em{color:var(--green);font-style:normal}
+.s-sub{font-size:16px;color:var(--muted);max-width:620px;margin-bottom:48px;line-height:1.65}
+.bg-alt{background:var(--bg-alt)}
+.bg-navy{background:var(--navy);color:#fff}
+.bg-navy h2{color:#fff}
+.bg-navy h2 em{color:var(--green)}
+.bg-navy .s-sub{color:rgba(255,255,255,0.75)}
+.bg-navy .s-label{color:var(--green);background:rgba(143,184,0,0.15)}
+.logo-pattern{position:relative;overflow:hidden}
+.logo-pattern::before{content:'';position:absolute;inset:0;background-image:url('./nb360-logo.png');background-repeat:repeat;background-size:100px auto;opacity:0.05;pointer-events:none;z-index:0;transform:rotate(-8deg) scale(1.15);transform-origin:center}
+.logo-pattern-alt{position:relative;overflow:hidden}
+.logo-pattern-alt::before{content:'';position:absolute;inset:0;background-image:url('./nb360-logo.png');background-repeat:repeat;background-size:80px auto;opacity:0.04;pointer-events:none;z-index:0;transform:rotate(12deg) scale(1.2);transform-origin:center}
+.logo-pattern .s-inner,.logo-pattern-alt .s-inner{position:relative;z-index:1}
+
+/* 360 PILARES */
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:24px}
+.pillar{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px 24px;transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden}
+.pillar::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.pillar:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.pillar:hover::before{transform:scaleX(1)}
+.pillar-num{font-family:var(--display);font-size:40px;color:var(--green);line-height:1;letter-spacing:1px;margin-bottom:14px}
+.pillar h3{font-family:var(--display);font-size:22px;letter-spacing:0.5px;color:var(--navy);margin-bottom:10px}
+.pillar p{font-size:14.5px;color:var(--text-body);line-height:1.6}
+
+/* PARCEIROS DESTAQUE */
+.partners{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:28px}
+@media(max-width:900px){.partners{grid-template-columns:1fr}}
+.partner{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 28px;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.partner::before{content:'';position:absolute;top:-60px;right:-60px;width:160px;height:160px;background:radial-gradient(circle,var(--green-dim) 0%,transparent 70%);border-radius:50%;transition:transform .4s}
+.partner:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.partner:hover::before{transform:scale(1.3)}
+.partner-icon{position:relative;z-index:1;width:64px;height:64px;background:var(--navy);color:var(--green);border-radius:16px;display:grid;place-items:center;font-size:28px;margin-bottom:20px}
+.partner-logo{position:relative;z-index:1;height:72px;margin-bottom:22px;display:flex;align-items:center}
+.partner-logo img{max-height:100%;max-width:180px;width:auto;object-fit:contain}
+.partner-logo.circ img{height:72px;width:72px;object-fit:cover;border-radius:50%;border:3px solid #fff;box-shadow:var(--shadow)}
+.partner-mono{position:relative;z-index:1;width:72px;height:72px;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:var(--green);border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-size:30px;letter-spacing:1px;margin-bottom:22px;box-shadow:var(--shadow),inset 0 0 0 3px rgba(143,184,0,0.3)}
+.partner-tag{position:relative;z-index:1;display:inline-block;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--green-dark);background:var(--green-dim);padding:4px 10px;border-radius:4px;margin-bottom:14px}
+.partner h3{position:relative;z-index:1;font-family:var(--display);font-size:28px;letter-spacing:0.5px;color:var(--navy);margin-bottom:8px;line-height:1}
+.partner-role{position:relative;z-index:1;font-size:13px;font-weight:600;color:var(--green-dark);margin-bottom:14px;text-transform:uppercase;letter-spacing:1px}
+.partner-bio{position:relative;z-index:1;font-size:14.5px;color:var(--text-body);line-height:1.6;margin-bottom:20px}
+.partner-ig{position:relative;z-index:1;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--navy);padding:9px 16px;background:rgba(28,46,110,0.06);border-radius:999px;transition:background .2s,color .2s}
+.partner-ig:hover{background:var(--navy);color:#fff}
+.partner-ig svg{width:16px;height:16px}
+
+/* VIDEOS */
+.vid-wrapper{position:relative;max-width:1080px;margin:0 auto}
+.vid-track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px;scroll-padding-left:4px}
+.vid-track::-webkit-scrollbar{display:none}
+.vid-slide{position:relative;flex:0 0 calc(33.333% - 12px);aspect-ratio:9/16;background:#000;border-radius:var(--radius-lg);overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always;box-shadow:var(--shadow-lg)}
+@media(max-width:900px){.vid-slide{flex:0 0 calc(50% - 9px)}}
+@media(max-width:600px){.vid-slide{flex:0 0 85%}}
+.vid-slide video{width:100%;height:100%;object-fit:cover;display:block}
+.vid-play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:54px;height:54px;background:rgba(255,255,255,0.95);border-radius:50%;display:grid;place-items:center;cursor:pointer;z-index:3;box-shadow:0 8px 32px rgba(0,0,0,0.4);transition:opacity .25s,transform .25s}
+.vid-play-btn::after{content:'';border-left:17px solid var(--navy);border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
+.vid-play-btn:hover{transform:translate(-50%,-50%) scale(1.08)}
+.vid-play-btn.hidden{opacity:0;pointer-events:none}
+.vid-nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;background:#fff;border-radius:50%;display:grid;place-items:center;cursor:pointer;z-index:10;box-shadow:var(--shadow-lg);color:var(--navy);font-size:20px;transition:background .2s,transform .2s,color .2s;border:1px solid var(--border)}
+.vid-nav:hover{background:var(--navy);color:#fff;transform:translateY(-50%) scale(1.1);border-color:var(--navy)}
+.vid-prev{left:-18px}.vid-next{right:-18px}
+@media(max-width:600px){.vid-prev{left:4px}.vid-next{right:4px}}
+.vid-hint{display:none;align-items:center;gap:8px;justify-content:center;margin-top:16px;font-family:inherit;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.vid-hint::before{content:'';width:18px;height:2px;background:var(--green);border-radius:2px}
+@media(max-width:900px){.vid-hint{display:inline-flex}}
+
+/* JUNIOR CARD */
+.junior-card{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:40px;margin-top:32px;position:relative;overflow:hidden}
+@media(max-width:800px){.junior-card{grid-template-columns:1fr;padding:28px}}
+.junior-card::before{content:'';position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,var(--green-dim) 0%,transparent 70%);border-radius:50%}
+.junior-card-body{position:relative;z-index:1}
+.junior-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--green-dark);background:var(--green-dim);padding:5px 12px;border-radius:4px;margin-bottom:14px}
+.junior-card h3{font-family:var(--display);font-size:clamp(32px,4vw,44px);letter-spacing:0.5px;color:var(--navy);margin-bottom:12px;line-height:1}
+.junior-card h3 em{color:var(--green);font-style:normal}
+.junior-card p{font-size:15.5px;color:var(--text-body);line-height:1.65;margin-bottom:22px}
+.junior-card-video{position:relative;z-index:1;aspect-ratio:9/16;max-width:280px;justify-self:end;background:#000;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg)}
+@media(max-width:800px){.junior-card-video{justify-self:center}}
+.junior-card-video video{width:100%;height:100%;object-fit:cover}
+
+/* FINAL CTA */
+.cta-final{background:var(--navy);color:#fff;padding:80px 24px;text-align:center;position:relative;overflow:hidden}
+.cta-final::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(143,184,0,0.12) 0%,transparent 60%);border-radius:50%}
+.cta-final-inner{position:relative;z-index:1;max-width:640px;margin:0 auto}
+.cta-final h2{font-family:var(--display);font-size:clamp(36px,5.5vw,60px);line-height:0.98;letter-spacing:0.5px;margin-bottom:18px}
+.cta-final h2 em{color:var(--green);font-style:normal}
+.cta-final p{font-size:16.5px;color:rgba(255,255,255,0.78);margin-bottom:32px;line-height:1.65}
+.cta-final-ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+
+/* FAQ */
+.faqs{max-width:780px;margin:32px auto 0;display:grid;gap:12px}
+.faq-i{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:box-shadow .2s}
+.faq-i.open{box-shadow:var(--shadow)}
+.faq-q{padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;font-size:15.5px;font-weight:600;color:var(--navy);line-height:1.4}
+.faq-q svg{width:20px;height:20px;flex-shrink:0;color:var(--green);transition:transform .2s}
+.faq-i.open .faq-q svg{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s;padding:0 24px}
+.faq-i.open .faq-a{max-height:400px;padding:0 24px 20px}
+.faq-a p{font-size:15px;color:var(--text-body);line-height:1.65}
+
+/* FOOTER */
+.footer{background:#0e1935;color:rgba(255,255,255,0.65);padding:48px 24px 28px}
+.footer-inner{max-width:var(--maxw);margin:0 auto;text-align:center}
+.footer-logo{height:48px;margin:0 auto 18px}
+.footer-tag{font-size:14px;max-width:420px;margin:0 auto 20px;line-height:1.55}
+.footer-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:24px;font-size:13.5px;font-weight:600}
+.footer-links a{color:#fff;transition:color .15s}
+.footer-links a:hover{color:var(--green)}
+.footer-bottom{padding-top:20px;border-top:1px solid rgba(255,255,255,0.1);font-size:12px;color:rgba(255,255,255,0.4)}
+
+/* FAB WA */
+.fab-wa{position:fixed;bottom:22px;right:22px;z-index:70;display:inline-flex;align-items:center;gap:10px;padding:14px 20px;background:#25D366;color:#fff;border-radius:999px;font-size:14px;font-weight:700;box-shadow:0 10px 32px rgba(37,211,102,0.4);transition:transform .18s;animation:fab-pulse 2.4s ease-in-out infinite}
+.fab-wa:hover{transform:translateY(-2px) scale(1.03);animation:none}
+.fab-wa svg{width:22px;height:22px}
+@keyframes fab-pulse{0%,100%{box-shadow:0 10px 32px rgba(37,211,102,0.4),0 0 0 0 rgba(37,211,102,0.5)}50%{box-shadow:0 10px 32px rgba(37,211,102,0.4),0 0 0 14px rgba(37,211,102,0)}}
+@media(max-width:720px){.fab-wa{bottom:16px;right:16px;padding:14px}.fab-wa span{display:none}.fab-wa svg{width:26px;height:26px}}
+</style>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1397968278475446');
+fbq('track','PageView');
+fbq('trackCustom','NB360LandingView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1397968278475446&ev=PageView&noscript=1"/></noscript>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="nb360-logo.png" alt="CT NB360 · Nova Beach">
+    </a>
+    <a href="/" class="nav-back">← <span>Voltar pra Nova Beach</span></a>
+    <a href="#contato" class="nav-cta" data-cta="nav-cta" data-dest="wa">Falar com o CT</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="badge"><span class="badge-dot"></span>Centro de Treinamento · Alto Rendimento</div>
+      <h1>
+        <span class="pre">PROGRAMA 360°</span>
+        FORMAR<br>ATLETAS<br>DE <em>VERDADE.</em>
+      </h1>
+      <p class="hero-sub">Técnico-tático, preparação física periodizada, fisioterapia e acompanhamento psicológico — todos os pilares que separam quem só joga de quem vira atleta. O CT NB360 já formou nomes no top 20 e top 30 mundial.</p>
+      <div class="hero-ctas">
+        <a href="#contato" class="btn btn-wa" data-cta="hero-wa" data-dest="wa">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+          Agendar avaliação
+        </a>
+        <a href="#metodo" class="btn btn-ghost">Conhecer o método ↓</a>
+      </div>
+    </div>
+    <div class="hero-video">
+      <video id="heroVideo" src="./nb360-projeto.mp4" playsinline preload="metadata"></video>
+      <div class="hv-play" id="heroPlay" onclick="playHero()"></div>
+    </div>
+  </div>
+</section>
+
+<!-- METODOLOGIA 360 -->
+<section class="s" id="metodo">
+  <div class="s-inner">
+    <div class="s-label">Metodologia 360°</div>
+    <h2>Os 4 pilares que <em>viram atleta profissional.</em></h2>
+    <p class="s-sub">Não é escolinha, não é aula particular, não é condicionamento. É um programa integrado de alto rendimento — mesma estrutura usada pelos atletas do top mundial que passaram por aqui.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <h3>Técnico-Tático</h3>
+        <p>Treinos conduzidos pelo Método BTS — leitura de jogo, posicionamento, variação de golpe e inteligência tática aplicada em quadra.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <h3>Preparação Física</h3>
+        <p>PRPE periodizado pela Lotus — potência explosiva, resistência específica, prevenção de lesão. Treino físico de alto rendimento para beach tennis.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <h3>Fisioterapia</h3>
+        <p>Avaliação, prevenção e recuperação com o Instituto Mood. Testes de performance e acompanhamento multidisciplinar integrado.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">04</div>
+        <h3>Psicologia Esportiva</h3>
+        <p>Sessões em grupo focadas em performance competitiva, controle emocional em quadra e desenvolvimento mental do atleta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARCEIROS DESTAQUE -->
+<section class="s bg-alt logo-pattern">
+  <div class="s-inner">
+    <div class="s-label">O Time Técnico & Parceiros</div>
+    <h2>Quem está <em>por trás</em> do programa.</h2>
+    <p class="s-sub">O CT NB360 opera em parceria com os melhores institutos multidisciplinares da região. Cada atleta é acompanhado por três frentes especializadas que conversam entre si.</p>
+
+    <div class="partners">
+      <div class="partner">
+        <div class="partner-mono">JP</div>
+        <div class="partner-tag">Coordenação Técnica</div>
+        <h3>JPE Carvalho</h3>
+        <div class="partner-role">Método BTS · Coord. Tático</div>
+        <p class="partner-bio">Criador do Método BTS (Beach Tennis System), responsável pelo desenvolvimento técnico-tático dos atletas do programa desde o início do projeto. Formou atletas presentes no ranking mundial.</p>
+        <a href="https://www.instagram.com/jpe_carvalho/" target="_blank" rel="noopener" class="partner-ig" data-cta="partner-jpe" data-dest="external">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg>
+          @jpe_carvalho
+        </a>
+      </div>
+
+      <div class="partner">
+        <div class="partner-logo"><img src="logo-mood.svg" alt="Instituto Mood"></div>
+        <div class="partner-tag">Fisioterapia & Testes</div>
+        <h3>Instituto Mood</h3>
+        <div class="partner-role">Multidisciplinar Integrado</div>
+        <p class="partner-bio">Fisioterapia esportiva, testes de performance e acompanhamento multidisciplinar. Avaliações periódicas, prevenção de lesão e recuperação dos atletas do programa.</p>
+        <a href="https://www.instagram.com/institutomood/" target="_blank" rel="noopener" class="partner-ig" data-cta="partner-mood" data-dest="external">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg>
+          @institutomood
+        </a>
+      </div>
+
+      <div class="partner">
+        <div class="partner-logo circ"><img src="logo-lotus.jpg" alt="Lotus Preparação Física"></div>
+        <div class="partner-tag">Preparação Física</div>
+        <h3>Lotus</h3>
+        <div class="partner-role">PRPE Alto Rendimento</div>
+        <p class="partner-bio">Preparação física periodizada e treinamento de alto rendimento específico para beach tennis. Potência, explosão e resistência construídas em ciclos de treino planejados.</p>
+        <a href="https://www.instagram.com/lotus.preparacaofisica/" target="_blank" rel="noopener" class="partner-ig" data-cta="partner-lotus" data-dest="external">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg>
+          @lotus.preparacaofisica
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section class="s">
+  <div class="s-inner">
+    <div class="s-label">O Programa em Ação</div>
+    <h2>Como é <em>treinar no NB360.</em></h2>
+    <p class="s-sub" style="text-align:center;margin:0 auto 48px">Metodologia profissional, estrutura dedicada e evolução real. Dá uma olhada no dia a dia dos atletas:</p>
+    <div class="vid-wrapper">
+      <button class="vid-nav vid-prev" onclick="vidScroll(-1)" aria-label="Anterior">←</button>
+      <div class="vid-track" id="vidTrack">
+        <div class="vid-slide"><video src="./nb360-treino.mp4" playsinline preload="metadata" controls></video><div class="vid-play-btn"></div></div>
+        <div class="vid-slide"><video src="./nb360-isadora.mp4" playsinline preload="metadata" controls></video><div class="vid-play-btn"></div></div>
+        <div class="vid-slide"><video src="./nb360-snap.mp4" playsinline preload="metadata" controls></video><div class="vid-play-btn"></div></div>
+        <div class="vid-slide"><video src="./nb360-snap2.mp4" playsinline preload="metadata" controls></video><div class="vid-play-btn"></div></div>
+        <div class="vid-slide"><video src="./nb360-snap4.mp4" playsinline preload="metadata" controls></video><div class="vid-play-btn"></div></div>
+      </div>
+      <button class="vid-nav vid-next" onclick="vidScroll(1)" aria-label="Próximo">→</button>
+    </div>
+    <div class="vid-hint">deslize para ver mais →</div>
+  </div>
+</section>
+
+<!-- NB360 JUNIOR -->
+<section class="s bg-alt">
+  <div class="s-inner">
+    <div class="s-label">Programa Derivado</div>
+    <h2>Tem um atleta <em>em formação?</em></h2>
+    <p class="s-sub">O NB360 Junior é o braço do CT focado em adolescentes de 14 a 18 anos com perfil de alto rendimento. Mesma metodologia, mesmo time técnico, seletiva anual.</p>
+    <div class="junior-card">
+      <div class="junior-card-body">
+        <div class="junior-tag">Seletiva aberta</div>
+        <h3>NB360 <em>Junior</em></h3>
+        <p>Para jovens entre 14 e 18 anos com dedicação real ao esporte. Avaliação criteriosa — nem todos os inscritos são selecionados. Participação na seletiva é gratuita.</p>
+        <a href="https://nb360-junior.vercel.app" target="_blank" rel="noopener" class="btn btn-primary" data-cta="junior-link" data-dest="external">
+          Ver a página do Junior →
+        </a>
+      </div>
+      <div class="junior-card-video">
+        <video src="./nb360-isadora.mp4" playsinline muted loop autoplay></video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final" id="contato">
+  <div class="cta-final-inner">
+    <h2>Pronto pra entrar <em>no CT?</em></h2>
+    <p>O primeiro passo é uma avaliação individual com o time técnico. A partir dela montamos um plano personalizado de acordo com o seu nível, objetivo e disponibilidade.</p>
+    <div class="cta-final-ctas">
+      <a href="#" class="btn btn-wa" data-cta="final-wa" data-dest="wa">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+          Falar com o CT no WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="s">
+  <div class="s-inner">
+    <div class="s-label">Dúvidas Frequentes</div>
+    <h2 style="text-align:center;margin:0 auto 8px">Perguntas <em>e respostas.</em></h2>
+    <div class="faqs">
+      <div class="faq-i">
+        <div class="faq-q" onclick="toggleFaq(this)">O CT NB360 é para quem?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>Para atletas que querem se profissionalizar ou competir em alto nível (circuito regional, estadual, nacional ou internacional). Não é escolinha nem aula recreativa — exige dedicação, frequência e compromisso com o programa.</p></div>
+      </div>
+      <div class="faq-i">
+        <div class="faq-q" onclick="toggleFaq(this)">Quantos treinos por semana?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>O padrão é 4 treinos semanais integrando os 4 pilares (técnico-tático na Nova Beach + preparação física na Lotus + fisioterapia e testes no Instituto Mood). A distribuição é ajustada no plano individual.</p></div>
+      </div>
+      <div class="faq-i">
+        <div class="faq-q" onclick="toggleFaq(this)">Qual o investimento?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>Sob consulta. As condições de participação são apresentadas após a avaliação individual, porque o plano é personalizado por nível e volume de treino.</p></div>
+      </div>
+      <div class="faq-i">
+        <div class="faq-q" onclick="toggleFaq(this)">Como funciona a avaliação individual?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>Agendamos uma conversa + sessão prática na Nova Beach, onde o time técnico avalia nível, histórico de jogo e perfil competitivo. Com base nisso montamos o plano e indicamos o ponto de entrada no programa.</p></div>
+      </div>
+      <div class="faq-i">
+        <div class="faq-q" onclick="toggleFaq(this)">Precisa já ter nível competitivo?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><p>Não necessariamente — o critério é o compromisso com alto rendimento. Entram atletas de nível intermediário avançado em diante, desde que a dedicação e objetivo estejam alinhados com o programa.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <img src="nb360-logo.png" alt="CT NB360" class="footer-logo">
+    <p class="footer-tag">Centro de Treinamento de Alto Rendimento em Beach Tennis · Nova Beach Campinas</p>
+    <div class="footer-links">
+      <a href="/">Nova Beach</a>
+      <a href="#metodo">Metodologia</a>
+      <a href="https://nb360-junior.vercel.app" target="_blank" rel="noopener">NB360 Junior</a>
+      <a href="#contato">Contato</a>
+    </div>
+    <div class="footer-bottom">© 2026 CT NB360 · Nova Beach Campinas · Av. Dr. Jesuíno Marcondes Machado, 869</div>
+  </div>
+</footer>
+
+<a href="#" class="fab-wa" data-cta="fab-wa" data-dest="wa" aria-label="WhatsApp CT NB360">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+  <span>WhatsApp</span>
+</a>
+
+<script>
+// Hero video
+function playHero(){
+  var v=document.getElementById('heroVideo'),p=document.getElementById('heroPlay');
+  v.play(); p.classList.add('hidden');
+  v.setAttribute('controls','');
+}
+
+// Carrossel vídeos — scroll horizontal 1 slide por vez
+function vidScroll(dir){
+  var t=document.getElementById('vidTrack');
+  var slide=t.querySelector('.vid-slide');
+  if(!slide)return;
+  var step=slide.getBoundingClientRect().width+18;
+  t.scrollBy({left:dir*step,behavior:'smooth'});
+}
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.vid-play-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      this.previousElementSibling.play();
+      this.classList.add('hidden');
+    });
+  });
+  document.querySelectorAll('#vidTrack video').forEach(function(v){
+    v.addEventListener('pause',function(){ if(this.nextElementSibling) this.nextElementSibling.classList.remove('hidden') });
+    v.addEventListener('ended',function(){ if(this.nextElementSibling) this.nextElementSibling.classList.remove('hidden') });
+  });
+});
+
+// FAQ
+function toggleFaq(el){ el.parentElement.classList.toggle('open') }
+
+// UTM + CTAs
+(function(){
+  var qs=new URLSearchParams(window.location.search);
+  var persisted={};
+  try{persisted=JSON.parse(sessionStorage.getItem('nb_utms')||'{}')}catch(e){}
+  function pick(k){return qs.get(k)||persisted[k]||''}
+  var utm={
+    utm_source:pick('utm_source')||'website',
+    utm_medium:pick('utm_medium')||'cta',
+    utm_campaign:pick('utm_campaign')||'nb360',
+    utm_content:pick('utm_content')||'',
+    fbclid:pick('fbclid')||''
+  };
+  try{if(qs.has('utm_source')||qs.has('fbclid'))sessionStorage.setItem('nb_utms',JSON.stringify(utm))}catch(e){}
+
+  var WA_PHONE='5519997086943';
+  var WA_MSG='Oi! Vim pela pagina do CT NB360 e quero agendar a avaliacao individual.';
+  function cookie(n){return (document.cookie.split('; ').find(function(r){return r.indexOf(n+'=')===0})||'').split('=')[1]||null}
+  function originTag(key){
+    var parts=[];
+    if(utm.utm_source&&utm.utm_source!=='website')parts.push(utm.utm_source);
+    if(utm.utm_campaign&&utm.utm_campaign!=='nb360')parts.push(utm.utm_campaign);
+    if(utm.utm_content)parts.push(utm.utm_content);
+    if(utm.fbclid)parts.push('fbclid:'+utm.fbclid.slice(0,10));
+    parts.push('cta:'+key);
+    return ' ⟨origem: nb360 · '+parts.join(' · ')+'⟩';
+  }
+  document.querySelectorAll('[data-cta]').forEach(function(el){
+    var key=el.dataset.cta, dest=el.dataset.dest;
+    if(dest==='wa'){
+      el.href='https://wa.me/'+WA_PHONE+'?text='+encodeURIComponent(WA_MSG+originTag(key));
+      el.target='_blank'; el.rel='noopener';
+    }
+    el.addEventListener('click',function(){
+      var eventId='NB360-'+Date.now()+'-'+Math.random().toString(36).slice(2,10);
+      var eventName=(dest==='wa')?'Lead':'ViewContent';
+      var customData={content_name:'nb360_'+key,content_category:'nb360',source:utm.utm_source,dest:dest,utm_source:utm.utm_source,utm_medium:utm.utm_medium,utm_campaign:utm.utm_campaign,utm_content:key};
+      try{fbq('track',eventName,customData,{eventID:eventId})}catch(e){}
+      try{
+        fetch('/api/capi',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({event_name:eventName,event_id:eventId,event_time:Math.floor(Date.now()/1000),event_source_url:window.location.href,action_source:'website',user_data:{fbp:cookie('_fbp'),fbc:cookie('_fbc')},custom_data:customData}),keepalive:true}).catch(function(){});
+      }catch(e){}
+    });
+  });
+})();
+</script>
+</body>
+</html>
