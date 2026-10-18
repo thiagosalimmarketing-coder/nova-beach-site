@@ -165,7 +165,7 @@ h1 em{color:var(--green);font-style:normal}
 @media(max-width:800px){.junior-card-video{justify-self:center}}
 .junior-card-video video{width:100%;height:100%;object-fit:cover}
 
-/* FINAL CTA */
+/* FINAL CTA + FORM QUALIFICACAO */
 .cta-final{background:var(--navy);color:#fff;padding:80px 24px;text-align:center;position:relative;overflow:hidden}
 .cta-final::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(143,184,0,0.12) 0%,transparent 60%);border-radius:50%}
 .cta-final-inner{position:relative;z-index:1;max-width:640px;margin:0 auto}
@@ -173,6 +173,21 @@ h1 em{color:var(--green);font-style:normal}
 .cta-final h2 em{color:var(--green);font-style:normal}
 .cta-final p{font-size:16.5px;color:rgba(255,255,255,0.78);margin-bottom:32px;line-height:1.65}
 .cta-final-ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.qualif-form{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:32px;backdrop-filter:blur(8px);text-align:left;margin-top:12px}
+.qualif-note{font-size:13px;color:rgba(255,255,255,0.6);text-align:center;margin-bottom:24px;letter-spacing:0.02em;font-style:italic}
+.qualif-row{margin-bottom:18px}
+.qualif-label{display:block;font-size:12px;font-weight:700;color:var(--green);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px}
+.qualif-input,.qualif-select,.qualif-textarea{width:100%;background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.15);color:#fff;padding:13px 16px;border-radius:10px;font:inherit;font-size:15px;transition:border-color .15s,background .15s}
+.qualif-input:focus,.qualif-select:focus,.qualif-textarea:focus{outline:none;border-color:var(--green);background:rgba(0,0,0,0.5)}
+.qualif-input::placeholder,.qualif-textarea::placeholder{color:rgba(255,255,255,0.35)}
+.qualif-select{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path fill='%238fb800' d='M6 9L1 4h10z'/></svg>");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px;cursor:pointer}
+.qualif-select option{background:#152256;color:#fff}
+.qualif-textarea{min-height:70px;resize:vertical;font-family:inherit}
+.qualif-submit{width:100%;background:var(--green);color:#0a1428;border:0;padding:16px 24px;border-radius:10px;font:inherit;font-size:16px;font-weight:800;letter-spacing:0.3px;cursor:pointer;margin-top:8px;transition:transform .15s,box-shadow .15s}
+.qualif-submit:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(143,184,0,0.3)}
+.qualif-submit:disabled{opacity:0.4;cursor:not-allowed;transform:none;box-shadow:none}
+.qualif-err{color:#ff8d8d;font-size:13px;margin-top:8px;text-align:center;min-height:18px}
+.qualif-ok{background:rgba(143,184,0,0.15);border-left:3px solid var(--green);padding:20px 24px;border-radius:10px;color:#fff;margin-top:16px;font-size:15px;line-height:1.5}
 
 /* FAQ */
 .faqs{max-width:780px;margin:32px auto 0;display:grid;gap:12px}
@@ -369,19 +384,192 @@ fbq('trackCustom','NB360LandingView');
   </div>
 </section>
 
-<!-- CTA FINAL -->
+<!-- CTA FINAL + FORM QUALIFICACAO -->
 <section class="cta-final" id="contato">
   <div class="cta-final-inner">
     <h2>Pronto pra entrar <em>no CT?</em></h2>
-    <p>O primeiro passo é uma avaliação individual com o time técnico. A partir dela montamos um plano personalizado de acordo com o seu nível, objetivo e disponibilidade.</p>
-    <div class="cta-final-ctas">
-      <a href="#" class="btn btn-wa" data-cta="final-wa" data-dest="wa">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
-          Falar com o CT no WhatsApp
-      </a>
+    <p>O primeiro passo é uma avaliação individual com o time técnico. Pra agilizar a conversa, preenche os campos abaixo — a gente só vai aceitar quem tá alinhado com o programa de alto rendimento.</p>
+
+    <form class="qualif-form" id="qualif-form" novalidate>
+      <p class="qualif-note">* todos os campos obrigatórios · retorno em até 24h útil</p>
+
+      <div class="qualif-row">
+        <label class="qualif-label" for="qf-nome">Nome completo</label>
+        <input type="text" id="qf-nome" class="qualif-input" placeholder="Como você se apresenta" maxlength="80" autocomplete="name" required>
+      </div>
+
+      <div class="qualif-row">
+        <label class="qualif-label" for="qf-tel">WhatsApp</label>
+        <input type="tel" id="qf-tel" class="qualif-input" placeholder="(19) 9 9999-9999" maxlength="16" autocomplete="tel" inputmode="tel" required>
+      </div>
+
+      <div class="qualif-row">
+        <label class="qualif-label" for="qf-nivel">Seu nível hoje</label>
+        <select id="qf-nivel" class="qualif-select" required>
+          <option value="">Selecione…</option>
+          <option value="iniciante">Iniciante (comecei há menos de 1 ano)</option>
+          <option value="intermediario">Intermediário (jogo regular, sem competir)</option>
+          <option value="intermediario-avancado">Intermediário-avançado (já competi amador)</option>
+          <option value="avancado">Avançado (compito regional)</option>
+          <option value="competidor">Competidor ativo (estadual/nacional)</option>
+        </select>
+      </div>
+
+      <div class="qualif-row">
+        <label class="qualif-label" for="qf-objetivo">Objetivo com o CT NB360</label>
+        <select id="qf-objetivo" class="qualif-select" required>
+          <option value="">Selecione…</option>
+          <option value="profissionalizar">Me profissionalizar no Beach Tennis</option>
+          <option value="competir-regional">Competir em circuito regional</option>
+          <option value="competir-nacional">Competir em circuito nacional/internacional</option>
+          <option value="melhorar-performance">Melhorar performance pessoal com rigor</option>
+          <option value="outro">Outro</option>
+        </select>
+      </div>
+
+      <div class="qualif-row">
+        <label class="qualif-label" for="qf-disp">Disponibilidade de treino</label>
+        <select id="qf-disp" class="qualif-select" required>
+          <option value="">Selecione…</option>
+          <option value="4+">4+ treinos/semana (padrão do CT)</option>
+          <option value="3">3 treinos/semana</option>
+          <option value="2">2 treinos/semana</option>
+          <option value="indefinido">Ainda não sei</option>
+        </select>
+      </div>
+
+      <div class="qualif-row">
+        <label class="qualif-label" for="qf-circuito">Já joga/jogou algum circuito? (opcional)</label>
+        <input type="text" id="qf-circuito" class="qualif-input" placeholder="Ex: BT1000, BT500, torneios Nova Beach, nenhum" maxlength="100">
+      </div>
+
+      <button type="submit" class="qualif-submit" id="qf-submit">Enviar e falar com o CT →</button>
+      <p class="qualif-err" id="qf-err"></p>
+    </form>
+
+    <div class="qualif-ok" id="qf-ok" style="display:none">
+      ✅ Recebido. Você vai ser redirecionado pro WhatsApp em instantes com um resumo da sua resposta já preenchido. O time do CT vai retornar em até 24h úteis.
     </div>
   </div>
 </section>
+
+<script>
+(function(){
+  var form = document.getElementById('qualif-form');
+  var okBox = document.getElementById('qf-ok');
+  var errEl = document.getElementById('qf-err');
+  var submitBtn = document.getElementById('qf-submit');
+
+  function formatPhone(v){
+    var d = (v||'').replace(/\D/g,'').slice(0,11);
+    if(d.length<=2) return d.length?'('+d:d;
+    if(d.length<=6) return '('+d.slice(0,2)+') '+d.slice(2);
+    if(d.length<=10) return '('+d.slice(0,2)+') '+d.slice(2,6)+'-'+d.slice(6);
+    return '('+d.slice(0,2)+') '+d.slice(2,7)+'-'+d.slice(7);
+  }
+  document.getElementById('qf-tel').addEventListener('input', function(e){ e.target.value = formatPhone(e.target.value); });
+
+  function readUtm(){
+    try{
+      var qs = new URLSearchParams(location.search);
+      var p = {};
+      try{ p = JSON.parse(sessionStorage.getItem('nb_utms')||'{}'); }catch(e){}
+      ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'].forEach(function(k){ if(qs.get(k)) p[k]=qs.get(k); });
+      return p;
+    }catch(e){ return {}; }
+  }
+
+  function cookie(n){ return (document.cookie.split('; ').find(function(r){return r.indexOf(n+'=')===0;})||'').split('=')[1]||null; }
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    errEl.textContent = '';
+
+    var nome = document.getElementById('qf-nome').value.trim();
+    var telRaw = document.getElementById('qf-tel').value.replace(/\D/g,'');
+    var nivel = document.getElementById('qf-nivel').value;
+    var objetivo = document.getElementById('qf-objetivo').value;
+    var disp = document.getElementById('qf-disp').value;
+    var circuito = document.getElementById('qf-circuito').value.trim();
+
+    if(nome.length<2){ errEl.textContent='Nome obrigatório.'; return; }
+    if(telRaw.length<10){ errEl.textContent='WhatsApp inválido (mínimo 10 dígitos).'; return; }
+    if(!nivel || !objetivo || !disp){ errEl.textContent='Preencha todos os campos marcados.'; return; }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Enviando…';
+
+    var utm = readUtm();
+    var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxHj2ZmFdWwFJ9Yhc5lodg1Kn_BtHK9qOjiOM-GlzGYJ3eZEHFMMJrQRq4wcLFub9UIzQ/exec';
+
+    var nivelLabel = document.getElementById('qf-nivel').selectedOptions[0].text;
+    var objetivoLabel = document.getElementById('qf-objetivo').selectedOptions[0].text;
+    var dispLabel = document.getElementById('qf-disp').selectedOptions[0].text;
+
+    var msgWa = 'Oi! Vim pelo site do CT NB360 e quero avaliação individual.\n\n' +
+      '👤 ' + nome + '\n' +
+      '📱 Nível: ' + nivelLabel + '\n' +
+      '🎯 Objetivo: ' + objetivoLabel + '\n' +
+      '🗓️ Disponibilidade: ' + dispLabel + '\n' +
+      (circuito ? '🏆 Circuito: ' + circuito + '\n' : '') +
+      '\n⟨origem: nb360 · cta:qualificacao-form⟩';
+
+    var payload = {
+      nome: nome,
+      tel: telRaw,
+      path: 'ct_nb360',
+      choice: nivel + '_' + objetivo,
+      bairro: '',
+      msg: msgWa,
+      utm_source: utm.utm_source || 'nb360_organico',
+      utm_campaign: utm.utm_campaign || 'nb360_qualificacao',
+      utm_content: nivel,
+      utm_term: objetivo,
+      fbclid: utm.fbclid || '',
+      ua: navigator.userAgent
+    };
+
+    // Grava na planilha + dispara email alert (Apps Script faz os dois)
+    try{
+      fetch(SHEETS_URL, {
+        method:'POST', mode:'no-cors',
+        headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body: JSON.stringify(payload),
+        keepalive:true
+      }).catch(function(){});
+    }catch(e){}
+
+    // Pixel + CAPI
+    var eventId = 'Lead-'+Date.now()+'-'+Math.random().toString(36).slice(2,10);
+    var customData = {
+      content_name:'nb360_qualificacao',
+      content_category:'ct_nb360',
+      nivel: nivel, objetivo: objetivo, disponibilidade: disp,
+      utm_source: payload.utm_source, utm_campaign: payload.utm_campaign
+    };
+    try{ fbq('track','Lead', customData, {eventID:eventId}); }catch(e){}
+    try{
+      fetch('/api/capi', {
+        method:'POST', headers:{'content-type':'application/json'},
+        body: JSON.stringify({
+          event_name:'Lead', event_id:eventId,
+          event_time:Math.floor(Date.now()/1000),
+          event_source_url:location.href, action_source:'website',
+          user_data:{ fbp:cookie('_fbp'), fbc:cookie('_fbc'), phone:'55'+telRaw, name:nome },
+          custom_data: customData
+        }),
+        keepalive:true
+      }).catch(function(){});
+    }catch(e){}
+
+    form.style.display = 'none';
+    okBox.style.display = 'block';
+
+    var waUrl = 'https://wa.me/5519997086943?text=' + encodeURIComponent(msgWa);
+    setTimeout(function(){ window.location.href = waUrl; }, 2200);
+  });
+})();
+</script>
 
 <!-- FAQ -->
 <section class="s">
