@@ -102,10 +102,13 @@ a{color:inherit;text-decoration:none}
 .feature p{font-size:14px;color:var(--mute);line-height:1.5}
 
 /* ===== LOCKUP "APRESENTA" (dentro do hero, abaixo do eyebrow) ===== */
-.presenta-lockup{display:inline-flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:22px}
-.presenta-logo-esq,.presenta-logo-dir{height:60px;width:auto;object-fit:contain;display:block}
-.presenta-sep{width:1px;height:48px;background:rgba(255,255,255,0.3);display:inline-block}
-@media(max-width:600px){.presenta-lockup{gap:14px;margin-bottom:16px}.presenta-logo-esq,.presenta-logo-dir{height:44px}.presenta-sep{height:36px}}
+.presenta-lockup{display:inline-flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin-bottom:22px}
+/* tfsports (dir.png): 3721x797 aspect 4.67, logo cheio */
+.presenta-logo-tfs{height:28px;width:auto;object-fit:contain;display:block}
+/* Porto Saude | Track&Field (esq.png): 1920x1080 com whitespace, precisa altura maior */
+.presenta-logo-porto{height:90px;width:auto;object-fit:contain;display:block}
+.presenta-txt{color:rgba(255,255,255,0.75);font-family:var(--font);font-weight:500;font-size:14px;font-style:italic;letter-spacing:0.02em}
+@media(max-width:600px){.presenta-lockup{gap:12px;margin-bottom:16px}.presenta-logo-tfs{height:22px}.presenta-logo-porto{height:66px}.presenta-txt{font-size:12px}}
 
 .editions{background:#fff}
 .editions-grid{display:flex;gap:20px;margin-top:36px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px 0 24px;scroll-padding-left:0}
@@ -189,9 +192,9 @@ fbq('trackCustom','TrackFieldLandingView');
   <div class="hero-inner">
     <div class="hero-eyebrow">🏃 Evento parceiro</div>
     <div class="presenta-lockup">
-      <img class="presenta-logo-esq" src="logo-apresenta-esq.png" alt="TFSports apresenta">
-      <span class="presenta-sep">|</span>
-      <img class="presenta-logo-dir" src="logo-apresenta-dir.png" alt="Porto Saúde · Track&Field Experience">
+      <img class="presenta-logo-tfs" src="logo-apresenta-dir.png" alt="TFSports">
+      <span class="presenta-txt">apresenta</span>
+      <img class="presenta-logo-porto" src="logo-apresenta-esq.png" alt="Porto Saúde · Track&Field Experience">
     </div>
     <h1 class="hero-title">Track&Field <em>Experience</em><br>na Nova Beach.</h1>
     <p class="hero-sub">Treino funcional, yoga na areia, beach tennis e ativações de marca. Já são 4 edições em 2026 — próxima edição com inscrição aberta.</p>
