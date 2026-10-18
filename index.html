@@ -85,6 +85,38 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 .depo-card{margin:0}
 .depo-media{position:relative;aspect-ratio:9/16;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);background:var(--navy)}
 .depo-card figcaption{margin-top:14px;font-size:15px;line-height:1.5;color:var(--navy);font-weight:600}
+.reviews{background:var(--sand)}
+.reviews-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-top:28px;margin-bottom:28px}
+.reviews-score{display:flex;align-items:center;gap:18px}
+.reviews-score-num{font-family:var(--font-display,inherit);font-size:clamp(56px,10vw,96px);font-weight:800;line-height:1;color:var(--navy);letter-spacing:-0.03em}
+.reviews-score-meta{display:flex;flex-direction:column;gap:4px}
+.reviews-stars{color:#F5B800;font-size:20px;letter-spacing:2px;line-height:1}
+.reviews-count{font-size:14px;color:var(--mute);font-weight:600}
+.reviews-count a{color:var(--navy);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.reviews-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn-google{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;background:#fff;color:var(--navy);font-weight:700;font-size:14px;border:1px solid var(--border);transition:transform .15s,box-shadow .15s}
+.btn-google:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn-google.primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-google svg{width:18px;height:18px;flex-shrink:0}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.review-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;display:flex;flex-direction:column;gap:14px;position:relative;transition:transform .2s,box-shadow .2s}
+.review-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.review-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.review-stars{color:#F5B800;font-size:14px;letter-spacing:2px}
+.review-g{width:22px;height:22px;flex-shrink:0}
+.review-body{font-size:15px;line-height:1.55;color:var(--navy);font-weight:500;flex:1;quotes:"\201C" "\201D";position:relative}
+.review-body::before{content:open-quote;position:absolute;top:-16px;left:-6px;font-family:Georgia,serif;font-size:48px;line-height:1;color:var(--accent-2);opacity:0.3}
+.review-link{font-size:13px;color:var(--navy);font-weight:700;margin-top:6px;display:inline-flex;align-items:center;gap:6px;text-decoration:none;align-self:flex-start;border-bottom:2px solid transparent;padding-bottom:2px;transition:border-color .15s,gap .15s}
+.review-link:hover{border-bottom-color:var(--accent-2);gap:10px}
+.reviews-hint{display:none}
+@media(max-width:720px){
+  .reviews-grid{display:flex;grid-template-columns:none;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 -24px;padding:4px 24px 20px;scroll-padding-left:24px}
+  .reviews-grid::-webkit-scrollbar{display:none}
+  .reviews-grid .review-card{flex:0 0 82%;max-width:320px;scroll-snap-align:start;scroll-snap-stop:always}
+  .reviews-grid .review-card:hover{transform:none}
+  .reviews-hint{display:flex;align-items:center;gap:8px;margin-top:4px;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--mute)}
+  .reviews-hint::before{content:'';width:18px;height:2px;background:var(--accent-2);border-radius:2px}
+}
 
 /* ===== NAV ===== */
 .nav{position:sticky;top:0;z-index:50;background:rgba(243,245,250,0.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
@@ -196,6 +228,9 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 /* Martinez: corta o selo "20 ANOS" (direita da logo) + inverte pra branco (original e azul escuro, nao aparece no fundo navy) */
 .sponsor-item.sp-mda img{clip-path:inset(0 18% 0 0);max-height:70px;transform-origin:left center;filter:brightness(0) invert(1)}
 .sponsor-item.sp-mda:hover img{transform:scale(1.06) translateX(-4%)}
+.sponsor-item.sp-circle{position:relative;overflow:hidden}
+.sponsor-item.sp-circle::before{content:'';position:absolute;top:50%;left:50%;width:92px;height:92px;background:#fff;border-radius:50%;transform:translate(-50%,-50%);z-index:0}
+.sponsor-item.sp-circle img{position:relative;z-index:1;width:92px;height:92px;max-height:92px;max-width:92px;object-fit:contain}
 
 /* ===== EXTRAS ===== */
 .extras{background:#fff;position:relative}
@@ -402,6 +437,69 @@ fbq('track','PageView');
   </div>
 </section>
 
+<!-- AVALIAÇÕES GOOGLE -->
+<section class="section reviews" id="avaliacoes">
+  <div class="section-inner">
+    <div class="section-eyebrow">Avaliações no Google</div>
+    <h2 class="section-title">Quem já veio <em>deu nota alta.</em></h2>
+
+    <div class="reviews-head">
+      <div class="reviews-score">
+        <div class="reviews-score-num">4,5</div>
+        <div class="reviews-score-meta">
+          <div class="reviews-stars" aria-label="4,5 de 5 estrelas">★ ★ ★ ★ ★</div>
+          <div class="reviews-count">Baseado em <strong>59 avaliações</strong> no Google</div>
+        </div>
+      </div>
+      <div class="reviews-actions">
+        <a href="https://www.google.com/maps/place/Nova+Beach/@-22.8989257,-47.0442085,17z/data=!4m8!3m7!1s0x94c8cf47b4aacc35:0x78a8d852b9825d88!8m2!3d-22.8989257!4d-47.0442085!9m1!1b1" target="_blank" rel="noopener" class="btn-google primary" data-cta="reviews-ver-todas">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#fff" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#fff" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#fff" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          Ver todas no Google
+        </a>
+        <a href="https://search.google.com/local/writereview?placeid=ChIJNcyqtEfPyJQRiF2CuVLYqHg" target="_blank" rel="noopener" class="btn-google" data-cta="reviews-avaliar">
+          Avaliar a Nova Beach →
+        </a>
+      </div>
+    </div>
+
+    <div class="reviews-hint" aria-hidden="true">deslize para ver mais →</div>
+    <div class="reviews-grid" role="list">
+      <article class="review-card" role="listitem">
+        <div class="review-top">
+          <div class="review-stars" aria-label="5 estrelas">★ ★ ★ ★ ★</div>
+          <svg class="review-g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        </div>
+        <p class="review-body">Sensacional o local. Bem localizado no coração da Nova Campinas, fácil acesso, diversas quadras, bar com ótimo cardápio, petiscos excelentes e cerveja gelada. Público bonito!! Parabéns Nova Beach!</p>
+        <a href="https://www.google.com/maps/place/Nova+Beach/@-22.8989257,-47.0442085,17z/data=!4m8!3m7!1s0x94c8cf47b4aacc35:0x78a8d852b9825d88!8m2!3d-22.8989257!4d-47.0442085!9m1!1b1" target="_blank" rel="noopener" class="review-link">Ver no Google →</a>
+      </article>
+      <article class="review-card">
+        <div class="review-top">
+          <div class="review-stars" aria-label="5 estrelas">★ ★ ★ ★ ★</div>
+          <svg class="review-g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        </div>
+        <p class="review-body">Muito bacana o lugar, todos ambientes muito bem limpos, lanchonete top com cardápio bastante variado e as quadras também muito bacanas!!! Uma bela vibe e tudo muito TOP.</p>
+        <a href="https://www.google.com/maps/place/Nova+Beach/@-22.8989257,-47.0442085,17z/data=!4m8!3m7!1s0x94c8cf47b4aacc35:0x78a8d852b9825d88!8m2!3d-22.8989257!4d-47.0442085!9m1!1b1" target="_blank" rel="noopener" class="review-link">Ver no Google →</a>
+      </article>
+      <article class="review-card">
+        <div class="review-top">
+          <div class="review-stars" aria-label="5 estrelas">★ ★ ★ ★ ★</div>
+          <svg class="review-g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        </div>
+        <p class="review-body">Lugar muito bem montado, comida boa e ambiente muito gostoso. As quadras lindas, deu vontade de fazer um plano.</p>
+        <a href="https://www.google.com/maps/place/Nova+Beach/@-22.8989257,-47.0442085,17z/data=!4m8!3m7!1s0x94c8cf47b4aacc35:0x78a8d852b9825d88!8m2!3d-22.8989257!4d-47.0442085!9m1!1b1" target="_blank" rel="noopener" class="review-link">Ver no Google →</a>
+      </article>
+      <article class="review-card">
+        <div class="review-top">
+          <div class="review-stars" aria-label="5 estrelas">★ ★ ★ ★ ★</div>
+          <svg class="review-g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        </div>
+        <p class="review-body">Excelente lugar pra treinar e jogar Beach Tennis! Conta com bar e área kids para agradar todo mundo 😄</p>
+        <a href="https://www.google.com/maps/place/Nova+Beach/@-22.8989257,-47.0442085,17z/data=!4m8!3m7!1s0x94c8cf47b4aacc35:0x78a8d852b9825d88!8m2!3d-22.8989257!4d-47.0442085!9m1!1b1" target="_blank" rel="noopener" class="review-link">Ver no Google →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- MODALIDADES -->
 <section class="section modalidades" id="modalidades">
   <div class="section-inner">
@@ -439,7 +537,7 @@ fbq('track','PageView');
         <h3>CT NB360</h3>
         <p>Alta performance pra atletas que querem se profissionalizar ou competir em torneios. Avaliação individual e plano personalizado.</p>
         <div class="mod-card-price"><strong>Sob consulta</strong></div><br>
-        <a href="#" class="mod-card-link" data-cta="mod-nb360">Falar com o CT →</a>
+        <a href="/nb360/" class="mod-card-link">Conhecer o CT NB360 →</a>
       </div>
 
       <div class="mod-card">
@@ -548,6 +646,7 @@ fbq('track','PageView');
         <div class="sponsor-item"><img src="assets/sponsors/buddhaspa.png" alt="Buddha Spa" loading="eager" decoding="async"></div>
         <div class="sponsor-item"><img src="assets/sponsors/maiscabello.png" alt="Mais Cabello" loading="eager" decoding="async"></div>
         <div class="sponsor-item"><img src="assets/sponsors/mood.svg" alt="Instituto Mood" loading="eager" decoding="async"></div>
+        <div class="sponsor-item sp-circle"><img src="assets/sponsors/instituto-esporte-alegria.png" alt="Instituto Esporte & Alegria para Todos" loading="eager" decoding="async"></div>
         <div class="sponsor-item" aria-hidden="true"><img src="assets/sponsors/oba.svg" alt="" loading="eager" decoding="async"></div>
         <div class="sponsor-item" aria-hidden="true"><img src="assets/sponsors/sicredi.svg" alt="" loading="eager" decoding="async"></div>
         <div class="sponsor-item" aria-hidden="true"><img src="assets/sponsors/nutrata.png" alt="" loading="eager" decoding="async"></div>
@@ -556,6 +655,7 @@ fbq('track','PageView');
         <div class="sponsor-item" aria-hidden="true"><img src="assets/sponsors/buddhaspa.png" alt="" loading="eager" decoding="async"></div>
         <div class="sponsor-item" aria-hidden="true"><img src="assets/sponsors/maiscabello.png" alt="" loading="eager" decoding="async"></div>
         <div class="sponsor-item" aria-hidden="true"><img src="assets/sponsors/mood.svg" alt="" loading="eager" decoding="async"></div>
+        <div class="sponsor-item sp-circle" aria-hidden="true"><img src="assets/sponsors/instituto-esporte-alegria.png" alt="" loading="eager" decoding="async"></div>
       </div>
     </div>
     <!-- Esteira 2 (vai pra direita, mais lenta) -->
@@ -933,7 +1033,7 @@ fbq('track','PageView');
     'extra-trackfield': ['wa', '5519995575156', 'Oi! Vim pelo site e quero saber da proxima edicao do Track&Field Experience no Nova Beach.'],
     'cta-final-wa':     ['quiz', 'jogar'],
     // Produto fechado → direto /site/{slot}
-    'extra-marta':      ['direct', '/site/experimental'],
+    'extra-marta':      ['direct', '/site/marta'],
     'extra-day-use':    ['direct', '/site/day-use-individual'],
     // Consultivo / B2B → WA direto do responsavel (pula quiz, mensagem personalizada com origem)
     'mod-nb360':        ['wa', '5519997086943', 'Oi! Vim pelo site e quero saber sobre o CT NB360 (alta performance). Qual meu primeiro passo?'],
