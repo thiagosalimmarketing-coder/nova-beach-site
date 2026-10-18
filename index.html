@@ -1010,6 +1010,34 @@ fbq('track','PageView');
     var io=new IntersectionObserver(function(es){ es.forEach(function(e){ var v=e.target; if(e.isIntersecting){ v.play().catch(function(){}); } else { v.pause(); } }); },{threshold:0.35});
     document.querySelectorAll('video.nb-video[loop]').forEach(function(v){ io.observe(v); });
   }
+
+  // ===== Auto-advance mobile carousels (scroll-snap) =====
+  // Roda sozinho ate usuario tocar/scrollar. Reinicia 6s depois da ultima interacao.
+  function initAutoCarousel(sel){
+    if (window.innerWidth > 720) return;  // so mobile
+    document.querySelectorAll(sel).forEach(function(grid){
+      var cards = grid.children;
+      if (cards.length < 2) return;
+      var paused = false;
+      var pauseTimer = null;
+      function next(){
+        if (paused) return;
+        var cardW = cards[0].getBoundingClientRect().width + 14; // + gap
+        var atEnd = grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 10;
+        grid.scrollTo({ left: atEnd ? 0 : grid.scrollLeft + cardW, behavior: 'smooth' });
+      }
+      var interval = setInterval(next, 3500);
+      // Pausa ao interagir
+      ['touchstart','pointerdown','wheel'].forEach(function(ev){
+        grid.addEventListener(ev, function(){
+          paused = true;
+          clearTimeout(pauseTimer);
+          pauseTimer = setTimeout(function(){ paused = false; }, 6000);
+        }, {passive:true});
+      });
+    });
+  }
+  initAutoCarousel('.mod-grid, .plan-grid, .extras-grid, .benef-grid, .depo-grid');
 })();
 </script>
 </body>
