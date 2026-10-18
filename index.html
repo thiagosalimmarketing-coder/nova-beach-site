@@ -762,30 +762,33 @@ fbq('track','PageView');
   };
   try { if(qs.has('utm_source')||qs.has('fbclid')) sessionStorage.setItem('nb_utms', JSON.stringify(utm)); } catch(e){}
 
-  // ===== CTA → slot do hub links.novabeachcampinas.com.br =====
+  // ===== CTA → quiz do hub (qualifica) OU rota direta /site (produto fechado) =====
   var LINKS_BASE = 'https://links.novabeachcampinas.com.br';
+  // Formato: ['quiz', vertical] = vai pro quiz com ?p={vertical} | ['direct', slot] = vai direto /site/{slot}
   var CTA_MAP = {
-    'nav-agendar':      '/site/experimental',
-    'hero-experimental':'/site/experimental',
-    'mod-bt':           '/site/bt',
-    'mod-clubinho':     '/site/clubinho',
-    'mod-evento':       '/site/aniversario',
-    'mod-nb360':        '/site/bt',  // CT NB360 ainda nao tem rota propria, cai em BT
-    'plan-experimental':'/site/experimental',
-    'plan-bt-1x':       '/site/bt-1x',
-    'plan-bt-2x':       '/site/bt-2x',
-    'plan-clubinho':    '/site/clubinho',
-    'extra-marta':      '/site/experimental',
-    'extra-day-use':    '/site/day-use-individual',
-    'extra-quadra':     '/site/quadra',
-    'extra-empresarial':'/site/reservas',
-    'cta-final-wa':     '/site/bt'
+    // Exploracao / lead aberto → quiz do hub pra qualificar (nome, tel, bairro, LGPD)
+    'nav-agendar':      ['quiz', 'jogar'],
+    'hero-experimental':['quiz', 'jogar'],
+    'mod-bt':           ['quiz', 'jogar'],
+    'mod-clubinho':     ['quiz', 'clubinho'],
+    'mod-evento':       ['quiz', 'evento'],
+    'mod-nb360':        ['quiz', 'ct360'],
+    'plan-experimental':['quiz', 'jogar'],
+    'plan-bt-1x':       ['quiz', 'jogar'],
+    'plan-bt-2x':       ['quiz', 'jogar'],
+    'plan-clubinho':    ['quiz', 'clubinho'],
+    'extra-quadra':     ['quiz', 'reservar'],
+    'extra-empresarial':['quiz', 'reservar'],
+    'cta-final-wa':     ['quiz', 'jogar'],
+    // Produto fechado com preco → direto /site/{slot} (sem atrito, msg ja contem produto)
+    'extra-marta':      ['direct', '/site/experimental'],
+    'extra-day-use':    ['direct', '/site/day-use-individual']
   };
 
   // Build the final URL for each CTA with UTM
   document.querySelectorAll('[data-cta]').forEach(function(el){
     var key = el.dataset.cta;
-    var slot = CTA_MAP[key] || '/site/bt';
+    var cfg = CTA_MAP[key] || ['quiz', 'jogar'];
     var params = new URLSearchParams({
       utm_source:   utm.utm_source,
       utm_medium:   utm.utm_medium,
@@ -793,7 +796,14 @@ fbq('track','PageView');
       utm_content:  key
     });
     if(utm.fbclid) params.set('fbclid', utm.fbclid);
-    el.href = LINKS_BASE + slot + '?' + params.toString();
+    var path;
+    if (cfg[0] === 'quiz') {
+      params.set('p', cfg[1]);
+      path = '/';
+    } else {
+      path = cfg[1];
+    }
+    el.href = LINKS_BASE + path + '?' + params.toString();
     el.target = '_blank';
     el.rel = 'noopener';
   });
