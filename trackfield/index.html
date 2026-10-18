@@ -39,11 +39,36 @@ body{background:var(--sand);color:var(--ink);font-family:var(--font);font-size:1
 img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
 
+/* ===== NAV (igual home) ===== */
 .nav{position:sticky;top:0;z-index:50;background:rgba(243,245,250,0.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
 .nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.nav-logo img{height:44px;width:auto;object-fit:contain}
-.nav-back{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--navy-2);padding:8px 14px;border-radius:999px;border:1px solid var(--border);background:#fff;transition:all .15s}
-.nav-back:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:-0.02em;color:var(--navy)}
+.nav-logo img{height:48px;width:auto;object-fit:contain}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:14px;font-weight:600;color:var(--navy);transition:color .15s}
+.nav-links a:hover{color:var(--accent-2)}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;background:var(--navy);color:#fff;border-radius:999px;font-size:14px;font-weight:800;letter-spacing:-0.01em;transition:all .15s;box-shadow:0 4px 16px rgba(14,30,66,0.2)}
+.nav-cta:hover{background:var(--navy-2);transform:translateY(-1px)}
+@media(max-width:720px){.nav-links{display:none}.nav-cta{padding:9px 14px;font-size:13px}}
+
+/* ===== FOOTER (igual home) ===== */
+.footer{background:#070f24;color:rgba(255,255,255,0.65);padding:56px 24px 28px}
+.footer-inner{max-width:var(--maxw);margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+@media(max-width:800px){.footer-grid{grid-template-columns:1fr 1fr;gap:28px}}
+.footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.footer-logo img{height:52px;width:auto;object-fit:contain}
+.footer-tag{font-size:13px;line-height:1.5;max-width:280px}
+.footer h4{font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#fff;margin-bottom:14px;font-family:var(--mono)}
+.footer ul{list-style:none;display:grid;gap:8px}
+.footer li a{font-size:14px;transition:color .15s}
+.footer li a:hover{color:var(--accent)}
+.footer-social{display:flex;gap:10px;margin-top:14px}
+.footer-social a{width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:10px;display:grid;place-items:center;transition:all .15s}
+.footer-social a:hover{background:var(--accent);color:var(--navy)}
+.footer-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;font-family:var(--mono)}
+.footer-legal{display:flex;gap:14px;flex-wrap:wrap}
+.footer-legal a{color:rgba(255,255,255,0.5)}
 
 .hero{position:relative;padding:72px 24px 56px;overflow:hidden;background:var(--navy);color:#fff;background-image:url('../assets/pattern-raquetes.png');background-size:cover;background-position:center}
 .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,30,66,0.72) 0%,rgba(14,30,66,0.55) 50%,rgba(14,30,66,0.85) 100%);pointer-events:none}
@@ -93,8 +118,13 @@ a{color:inherit;text-decoration:none}
 .brands .section-title em{color:var(--accent)}
 .brands .section-eyebrow{color:var(--accent);background:rgba(215,253,63,0.1)}
 .brands .section-sub{color:rgba(255,255,255,0.75)}
-.brands-list{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.brand-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);padding:12px 20px;border-radius:999px;font-size:14px;font-weight:700;letter-spacing:-0.01em;color:#fff;backdrop-filter:blur(8px)}
+.brands-lockup{display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;margin:32px 0;padding:28px 20px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);backdrop-filter:blur(8px)}
+.brands-lockup img{max-height:48px;width:auto;object-fit:contain}
+.brands-lockup .sep{width:1px;height:36px;background:rgba(255,255,255,0.2)}
+.brands-list{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px;justify-content:center}
+.brand-logo{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);padding:14px 22px;border-radius:999px;backdrop-filter:blur(8px);height:68px}
+.brand-logo img{max-height:40px;width:auto;object-fit:contain}
+@media(max-width:720px){.brands-lockup{gap:18px;padding:20px 14px}.brands-lockup img{max-height:34px}.brands-lockup .sep{height:26px}}
 
 .cta{background:var(--sand);padding:72px 24px;text-align:center}
 .cta-inner{max-width:620px;margin:0 auto}
@@ -127,8 +157,18 @@ fbq('trackCustom','TrackFieldLandingView');
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="/" class="nav-logo"><img src="../logo-novabeach.png" alt="Nova Beach Campinas"></a>
-    <a href="/" class="nav-back">← Nova Beach</a>
+    <a href="/" class="nav-logo">
+      <img src="../logo-novabeach.png" alt="Nova Beach Campinas">
+    </a>
+    <div class="nav-links">
+      <a href="/#modalidades">Modalidades</a>
+      <a href="/#planos">Planos</a>
+      <a href="/#extras">Extras</a>
+      <a href="/#estrutura">Estrutura</a>
+      <a href="/#professores">Professores</a>
+      <a href="/#contato">Contato</a>
+    </div>
+    <a href="#final-cta" class="nav-cta">Inscrever-se</a>
   </div>
 </nav>
 
@@ -193,17 +233,19 @@ fbq('trackCustom','TrackFieldLandingView');
     <div class="section-eyebrow">Marcas que ativaram aqui</div>
     <h2 class="section-title">Quando a estrutura <em>aguenta</em>, as marcas vêm.</h2>
     <p class="section-sub">Receber Track&Field Experience, Porto Saúde, Porto Bank e Porto Seguro é o tipo de coisa que só acontece com quadras, bar, espaço pra marca e um time que faz o evento rodar do começo ao fim.</p>
+    <div class="brands-lockup">
+      <img src="logo-esq.png" alt="Nova Beach" style="filter:none">
+      <div class="sep"></div>
+      <img src="logo-dir.png" alt="Track&Field Experience">
+    </div>
     <div class="brands-list">
-      <div class="brand-tag">Track&Field</div>
-      <div class="brand-tag">T&F Sports</div>
-      <div class="brand-tag">Porto Saúde</div>
-      <div class="brand-tag">Porto Bank</div>
-      <div class="brand-tag">Porto Seguro</div>
+      <div class="brand-logo"><img src="tfsports.png" alt="TFSports"></div>
+      <div class="brand-logo"><img src="porto.svg" alt="Porto"></div>
     </div>
   </div>
 </section>
 
-<section class="cta">
+<section class="cta" id="final-cta">
   <div class="cta-inner">
     <h2>Quer entrar na <em>próxima edição?</em></h2>
     <p>Inscrições abertas na página oficial T&F Sports. Qualquer dúvida sobre data, programação ou acesso, chama no WhatsApp.</p>
@@ -220,9 +262,58 @@ fbq('trackCustom','TrackFieldLandingView');
 </section>
 
 <footer class="footer">
-  <img src="../logo-novabeach.png" alt="Nova Beach" class="footer-logo">
-  <div>Nova Beach Campinas · Av. Dr. Jesuíno Marcondes Machado, 869 · Nova Campinas</div>
-  <div style="margin-top:8px">© 2026 · <a href="/">Voltar pro site</a> · <a href="https://instagram.com/novabeach.cps" target="_blank" rel="noopener">@novabeach.cps</a></div>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="../logo-site-footer.png" alt="Nova Beach Campinas">
+        </div>
+        <p class="footer-tag">Arena de Beach Tennis em Nova Campinas. 5 quadras, Clubinho, eventos e Bowa Bar.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/novabeach.cps" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.71 3.71 0 0 1-1.38-.9 3.71 3.71 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.88 5.88 0 0 0-2.13 1.38A5.88 5.88 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91a5.88 5.88 0 0 0 1.38 2.13 5.88 5.88 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.88 5.88 0 0 0 2.13-1.38 5.88 5.88 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 0 0-1.38-2.13A5.88 5.88 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zm0 10.16a4 4 0 1 1 4-4 4 4 0 0 1-4 4zm6.4-11.84a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/></svg>
+          </a>
+          <a href="https://facebook.com/novabeachcampinas" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4>Modalidades</h4>
+        <ul>
+          <li><a href="/#modalidades">Beach Tennis</a></li>
+          <li><a href="/#modalidades">Clubinho</a></li>
+          <li><a href="/#modalidades">Eventos</a></li>
+          <li><a href="/#modalidades">CT NB360</a></li>
+          <li><a href="/#modalidades">Patrocínio</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Endereço</h4>
+        <ul>
+          <li>Av. Dr. Jesuíno Marcondes Machado, 869</li>
+          <li>Nova Campinas · Campinas-SP</li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Nova+Beach+Campinas+Av+Jesuino+Marcondes+Machado+869" target="_blank" rel="noopener">Abrir no Google Maps →</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Horário</h4>
+        <ul>
+          <li>Seg a qui · 7h-22h</li>
+          <li>Sex · 7h-21h</li>
+          <li>Sáb · 8h-16h</li>
+          <li>Dom · 9h-15h</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Nova Beach Campinas · Todos os direitos reservados</div>
+      <div class="footer-legal">
+        <a href="/">Voltar pro site</a>
+        <a href="/#contato">Contato</a>
+      </div>
+    </div>
+  </div>
 </footer>
 
 <a href="#" class="fab-wa" data-cta="fab-wa" data-dest="wa" aria-label="WhatsApp Track&Field">
