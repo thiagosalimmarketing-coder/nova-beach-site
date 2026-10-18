@@ -280,7 +280,9 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 /* ===== CTA FINAL ===== */
 .cta-final{background:var(--navy);color:#fff;padding:80px 24px;text-align:center;position:relative;overflow:hidden;background-image:url('assets/pattern-raquetes.png');background-size:cover;background-position:center;background-attachment:fixed}
 @media(max-width:720px){.cta-final{background-attachment:scroll}}
-.cta-final::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,30,66,0.86) 0%,rgba(14,30,66,0.78) 50%,rgba(14,30,66,0.92) 100%);backdrop-filter:blur(1px);pointer-events:none}
+.cta-final::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,30,66,0.72) 0%,rgba(14,30,66,0.55) 50%,rgba(14,30,66,0.82) 100%);pointer-events:none}
+.cta-final-inner{position:relative;z-index:2}
+.cta-final h2, .cta-final p{text-shadow:0 2px 20px rgba(0,0,0,0.6)}
 .cta-final-inner{position:relative;max-width:720px;margin:0 auto}
 .cta-final h2{font-size:clamp(32px,4.5vw,48px);font-weight:800;letter-spacing:-0.03em;line-height:1.05;margin-bottom:14px}
 .cta-final h2 em{color:var(--accent);font-style:normal}
