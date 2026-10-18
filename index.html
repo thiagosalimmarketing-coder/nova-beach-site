@@ -379,6 +379,15 @@ fbq('track','PageView');
         <div class="mod-card-price"><strong>Sob consulta</strong></div><br>
         <a href="#" class="mod-card-link" data-cta="mod-nb360">Falar com o CT →</a>
       </div>
+
+      <div class="mod-card">
+        <div class="mod-card-icon">🤝</div>
+        <h3>Patrocínio & Parcerias</h3>
+        <p>Naming rights, fachada, camisa, torneios, mídia digital. Associe sua marca à maior arena de Beach Tennis de Campinas.</p>
+        <div class="mod-card-price"><strong>Para empresas</strong></div><br>
+        <a href="#" class="mod-card-link" data-cta="mod-patrocinio">Falar com o Alex →</a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -715,6 +724,7 @@ fbq('track','PageView');
           <li><a href="#modalidades">Clubinho</a></li>
           <li><a href="#modalidades">Eventos</a></li>
           <li><a href="#modalidades">CT NB360</a></li>
+          <li><a href="#modalidades">Patrocínio</a></li>
         </ul>
       </div>
       <div>
@@ -762,17 +772,18 @@ fbq('track','PageView');
   };
   try { if(qs.has('utm_source')||qs.has('fbclid')) sessionStorage.setItem('nb_utms', JSON.stringify(utm)); } catch(e){}
 
-  // ===== CTA → quiz do hub (qualifica) OU rota direta /site (produto fechado) =====
+  // ===== CTA routing =====
+  // ['quiz', vertical]     → hub /?p={vertical} (qualifica no quiz: nome, tel, bairro, LGPD)
+  // ['direct', slot]       → hub /site/{slot}  (produto fechado com preco conhecido, sem atrito)
+  // ['wa', phone, msgBase] → wa.me/{phone} direto (consultivo B2B ou alta performance, pula tudo)
   var LINKS_BASE = 'https://links.novabeachcampinas.com.br';
-  // Formato: ['quiz', vertical] = vai pro quiz com ?p={vertical} | ['direct', slot] = vai direto /site/{slot}
   var CTA_MAP = {
-    // Exploracao / lead aberto → quiz do hub pra qualificar (nome, tel, bairro, LGPD)
+    // Exploracao / lead aberto → quiz (qualifica)
     'nav-agendar':      ['quiz', 'jogar'],
     'hero-experimental':['quiz', 'jogar'],
     'mod-bt':           ['quiz', 'jogar'],
     'mod-clubinho':     ['quiz', 'clubinho'],
     'mod-evento':       ['quiz', 'evento'],
-    'mod-nb360':        ['quiz', 'ct360'],
     'plan-experimental':['quiz', 'jogar'],
     'plan-bt-1x':       ['quiz', 'jogar'],
     'plan-bt-2x':       ['quiz', 'jogar'],
@@ -780,30 +791,46 @@ fbq('track','PageView');
     'extra-quadra':     ['quiz', 'reservar'],
     'extra-empresarial':['quiz', 'reservar'],
     'cta-final-wa':     ['quiz', 'jogar'],
-    // Produto fechado com preco → direto /site/{slot} (sem atrito, msg ja contem produto)
+    // Produto fechado → direto /site/{slot}
     'extra-marta':      ['direct', '/site/experimental'],
-    'extra-day-use':    ['direct', '/site/day-use-individual']
+    'extra-day-use':    ['direct', '/site/day-use-individual'],
+    // Consultivo / B2B → WA direto do responsavel (pula quiz, mensagem personalizada com origem)
+    'mod-nb360':        ['wa', '5519997086943', 'Oi! Vim pelo site e quero saber sobre o CT NB360 (alta performance). Qual meu primeiro passo?'],
+    'mod-patrocinio':   ['wa', '5519974022492', 'Oi Alex! Vim pelo site da Nova Beach e tenho interesse em patrocinio/parcerias. Me manda o midia kit e vamos conversar.']
   };
 
-  // Build the final URL for each CTA with UTM
+  function originTagText(key){
+    var parts = [];
+    if(utm.utm_source && utm.utm_source!=='website')   parts.push(utm.utm_source);
+    if(utm.utm_campaign && utm.utm_campaign!=='site-institucional') parts.push(utm.utm_campaign);
+    if(utm.utm_content) parts.push(utm.utm_content);
+    if(utm.fbclid)      parts.push('fbclid:'+utm.fbclid.slice(0,10));
+    parts.push('cta:'+key);
+    return ' ⟨origem: site · ' + parts.join(' · ') + '⟩';
+  }
+
+  // Build final URL for each CTA
   document.querySelectorAll('[data-cta]').forEach(function(el){
     var key = el.dataset.cta;
     var cfg = CTA_MAP[key] || ['quiz', 'jogar'];
-    var params = new URLSearchParams({
-      utm_source:   utm.utm_source,
-      utm_medium:   utm.utm_medium,
-      utm_campaign: utm.utm_campaign,
-      utm_content:  key
-    });
-    if(utm.fbclid) params.set('fbclid', utm.fbclid);
-    var path;
-    if (cfg[0] === 'quiz') {
-      params.set('p', cfg[1]);
-      path = '/';
+    if (cfg[0] === 'wa') {
+      // Direct WhatsApp with origem tag
+      var waMsg = cfg[2] + originTagText(key);
+      el.href = 'https://wa.me/' + cfg[1] + '?text=' + encodeURIComponent(waMsg);
     } else {
-      path = cfg[1];
+      // Through hub
+      var params = new URLSearchParams({
+        utm_source:   utm.utm_source,
+        utm_medium:   utm.utm_medium,
+        utm_campaign: utm.utm_campaign,
+        utm_content:  key
+      });
+      if(utm.fbclid) params.set('fbclid', utm.fbclid);
+      var path;
+      if (cfg[0] === 'quiz') { params.set('p', cfg[1]); path = '/'; }
+      else { path = cfg[1]; }
+      el.href = LINKS_BASE + path + '?' + params.toString();
     }
-    el.href = LINKS_BASE + path + '?' + params.toString();
     el.target = '_blank';
     el.rel = 'noopener';
   });
