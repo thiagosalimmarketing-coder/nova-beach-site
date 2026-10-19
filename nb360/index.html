@@ -812,6 +812,40 @@ function toggleFaq(el){ el.parentElement.classList.toggle('open') }
   });
 })();
 </script>
+
+<!-- SETAS DE CARROSSEL (desktop) -->
+<style>
+.nb-carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(14,30,66,0.9);color:#fff;border:0;cursor:pointer;font-size:22px;font-weight:700;line-height:1;display:none;align-items:center;justify-content:center;z-index:10;box-shadow:0 4px 20px rgba(14,30,66,0.3);transition:background .15s,transform .15s;font-family:inherit;padding:0}
+.nb-carousel-arrow:hover{background:#1a3066;transform:translateY(-50%) scale(1.08)}
+.nb-carousel-arrow-prev{left:-8px}
+.nb-carousel-arrow-next{right:-8px}
+@media(min-width:721px){.nb-carousel-arrow{display:inline-flex}}
+</style>
+<script>
+(function(){
+  if (window.innerWidth <= 720) return;
+  document.querySelectorAll('.partners').forEach(function(grid){
+    if (grid.children.length < 2) return;
+    if (getComputedStyle(grid.parentElement).position === 'static') grid.parentElement.style.position = 'relative';
+    function step(){ return grid.children[0].getBoundingClientRect().width + 20; }
+    function go(dir){
+      var atEnd = grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 10;
+      var atStart = grid.scrollLeft < 10;
+      var target = dir>0 ? (atEnd ? 0 : grid.scrollLeft + step()) : (atStart ? grid.scrollWidth : grid.scrollLeft - step());
+      grid.scrollTo({left:target,behavior:'smooth'});
+    }
+    ['prev','next'].forEach(function(pos,i){
+      var b = document.createElement('button');
+      b.type='button'; b.className='nb-carousel-arrow nb-carousel-arrow-'+pos;
+      b.innerHTML = i===0 ? '←' : '→';
+      b.setAttribute('aria-label', i===0 ? 'Anterior' : 'Próximo');
+      b.addEventListener('click', function(){ go(i===0?-1:1); });
+      grid.parentElement.appendChild(b);
+    });
+  });
+})();
+</script>
+
 <!-- COOKIE BANNER (LGPD) -->
 <div id="nb-cookies" style="display:none;position:fixed;left:16px;right:16px;bottom:16px;z-index:99;max-width:580px;margin:0 auto;background:#0e1e42;color:#fff;padding:18px 22px;border-radius:14px;box-shadow:0 12px 48px rgba(0,0,0,0.25);font-family:system-ui,-apple-system,sans-serif;font-size:14px;line-height:1.5">
   <div style="margin-bottom:12px">Usamos cookies pra melhorar sua experiência e medir campanhas (Meta Pixel). Ao continuar você aceita. <a href="/privacidade/" style="color:#8fb800;text-decoration:underline">Ler política</a>.</div>

@@ -424,6 +424,13 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 @keyframes fab-pulse{0%,100%{box-shadow:0 10px 32px rgba(37,211,102,0.4),0 0 0 0 rgba(37,211,102,0.6)}50%{box-shadow:0 10px 32px rgba(37,211,102,0.4),0 0 0 14px rgba(37,211,102,0)}}
 @media(max-width:720px){.fab-wa{bottom:16px;right:16px;padding:14px}.fab-wa-txt{display:none}.fab-wa svg{width:26px;height:26px}}
 
+/* ===== CARROSSEL — SETAS DESKTOP ===== */
+.nb-carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(14,30,66,0.9);color:#fff;border:0;cursor:pointer;font-size:22px;font-weight:700;line-height:1;display:none;align-items:center;justify-content:center;z-index:10;box-shadow:0 4px 20px rgba(14,30,66,0.3);transition:background .15s,transform .15s;font-family:inherit;padding:0}
+.nb-carousel-arrow:hover{background:#1a3066;transform:translateY(-50%) scale(1.08)}
+.nb-carousel-arrow-prev{left:-8px}
+.nb-carousel-arrow-next{right:-8px}
+@media(min-width:721px){.nb-carousel-arrow{display:inline-flex}}
+
 /* ===== CARROSSEL MOBILE (scroll-snap horizontal) para grids de cards ===== */
 @media(max-width:720px){
   .mod-grid, .plan-grid, .extras-grid, .benef-grid, .depo-grid {
@@ -1219,29 +1226,44 @@ fbq('track','PageView');
     document.querySelectorAll('video.nb-video[loop]').forEach(function(v){ io.observe(v); });
   }
 
-  // ===== Auto-advance mobile carousels (scroll-snap) =====
-  // Roda sozinho ate usuario tocar/scrollar. Reinicia 6s depois da ultima interacao.
+  // ===== Carousels: auto-advance (mobile) + arrows (desktop) =====
   function initAutoCarousel(sel){
-    if (window.innerWidth > 720) return;  // so mobile
     document.querySelectorAll(sel).forEach(function(grid){
       var cards = grid.children;
       if (cards.length < 2) return;
-      var paused = false;
-      var pauseTimer = null;
-      function next(){
-        if (paused) return;
-        var cardW = cards[0].getBoundingClientRect().width + 14; // + gap
-        var atEnd = grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 10;
-        grid.scrollTo({ left: atEnd ? 0 : grid.scrollLeft + cardW, behavior: 'smooth' });
+
+      function cardStep(){ return cards[0].getBoundingClientRect().width + 20; }
+      function atStart(){ return grid.scrollLeft < 10; }
+      function atEnd(){ return grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 10; }
+      function go(dir){
+        var w = cardStep();
+        var target = dir>0 ? (atEnd() ? 0 : grid.scrollLeft + w) : (atStart() ? grid.scrollWidth : grid.scrollLeft - w);
+        grid.scrollTo({ left: target, behavior: 'smooth' });
       }
-      var interval = setInterval(next, 3500);
-      // Pausa ao interagir
+
+      // Setas no desktop
+      if (window.innerWidth > 720) {
+        if (getComputedStyle(grid.parentElement).position === 'static') grid.parentElement.style.position = 'relative';
+        var mkBtn = function(dir, label, pos){
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'nb-carousel-arrow nb-carousel-arrow-'+pos;
+          b.setAttribute('aria-label', label);
+          b.innerHTML = dir>0 ? '→' : '←';
+          b.addEventListener('click', function(){ go(dir); pauseAuto(); });
+          grid.parentElement.appendChild(b);
+        };
+        mkBtn(-1, 'Anterior', 'prev');
+        mkBtn( 1, 'Próximo', 'next');
+      }
+
+      // Auto-advance (mobile OR desktop quando usuario inativo)
+      var paused = false, pauseTimer = null;
+      function pauseAuto(){ paused = true; clearTimeout(pauseTimer); pauseTimer = setTimeout(function(){ paused = false; }, 6000); }
+      function next(){ if (paused) return; go(1); }
+      if (window.innerWidth <= 720) { setInterval(next, 3500); }
       ['touchstart','pointerdown','wheel'].forEach(function(ev){
-        grid.addEventListener(ev, function(){
-          paused = true;
-          clearTimeout(pauseTimer);
-          pauseTimer = setTimeout(function(){ paused = false; }, 6000);
-        }, {passive:true});
+        grid.addEventListener(ev, pauseAuto, {passive:true});
       });
     });
   }
