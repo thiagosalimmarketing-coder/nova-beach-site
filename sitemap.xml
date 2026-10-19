@@ -21,6 +21,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://novabeachcampinas.com.br/torneios/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://novabeachcampinas.com.br/eventos/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://novabeachcampinas.com.br/privacidade/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

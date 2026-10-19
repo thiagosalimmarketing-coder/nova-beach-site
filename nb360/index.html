@@ -275,10 +275,10 @@ fbq('trackCustom','NB360LandingView');
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="/" class="nav-logo">
+    <a href="/" class="nav-logo" data-cta="link">
       <img src="nb360-logo.png" alt="CT NB360 · Nova Beach">
     </a>
-    <a href="/" class="nav-back">← <span>Voltar pra Nova Beach</span></a>
+    <a href="/" class="nav-back" data-cta="link">← <span>Voltar pra Nova Beach</span></a>
     <a href="#contato" class="nav-cta" data-cta="nav-cta" data-dest="wa">Falar com o CT</a>
   </div>
 </nav>
@@ -297,7 +297,7 @@ fbq('trackCustom','NB360LandingView');
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
           Agendar avaliação
         </a>
-        <a href="#metodo" class="btn btn-ghost">Conhecer o método ↓</a>
+        <a href="#metodo" class="btn btn-ghost" data-cta="anchor-metodo">Conhecer o método ↓</a>
       </div>
     </div>
     <div class="hero-video">
@@ -721,10 +721,10 @@ fbq('trackCustom','NB360LandingView');
     <img src="nb360-logo.png" alt="CT NB360" class="footer-logo">
     <p class="footer-tag">Centro de Treinamento de Alto Rendimento em Beach Tennis · Nova Beach Campinas</p>
     <div class="footer-links">
-      <a href="/">Nova Beach</a>
-      <a href="#metodo">Metodologia</a>
-      <a href="/nb360/junior/" target="_blank" rel="noopener">NB360 Junior</a>
-      <a href="#contato">Contato</a>
+      <a href="/" data-cta="link">Nova Beach</a>
+      <a href="#metodo" data-cta="anchor-metodo">Metodologia</a>
+      <a href="/nb360/junior/" target="_blank" rel="noopener" data-cta="link-nb360-junior">NB360 Junior</a>
+      <a href="#contato" data-cta="anchor-contato">Contato</a>
     </div>
     <div class="footer-bottom">© 2026 CT NB360 · Nova Beach Campinas · Av. Dr. Jesuíno Marcondes Machado, 869</div>
   </div>
@@ -848,7 +848,7 @@ function toggleFaq(el){ el.parentElement.classList.toggle('open') }
 
 <!-- COOKIE BANNER (LGPD) -->
 <div id="nb-cookies" style="display:none;position:fixed;left:16px;right:16px;bottom:16px;z-index:99;max-width:580px;margin:0 auto;background:#0e1e42;color:#fff;padding:18px 22px;border-radius:14px;box-shadow:0 12px 48px rgba(0,0,0,0.25);font-family:system-ui,-apple-system,sans-serif;font-size:14px;line-height:1.5">
-  <div style="margin-bottom:12px">Usamos cookies pra melhorar sua experiência e medir campanhas (Meta Pixel). Ao continuar você aceita. <a href="/privacidade/" style="color:#8fb800;text-decoration:underline">Ler política</a>.</div>
+  <div style="margin-bottom:12px">Usamos cookies pra melhorar sua experiência e medir campanhas (Meta Pixel). Ao continuar você aceita. <a href="/privacidade/" style="color:#8fb800;text-decoration:underline" data-cta="link-privacidade">Ler política</a>.</div>
   <div style="display:flex;gap:8px;flex-wrap:wrap">
     <button onclick="nbCookiesAccept()" style="background:#8fb800;color:#0e1e42;border:0;padding:10px 18px;border-radius:999px;font:inherit;font-weight:800;cursor:pointer">Aceitar</button>
     <button onclick="nbCookiesEssential()" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3);padding:10px 18px;border-radius:999px;font:inherit;font-weight:600;cursor:pointer">Só essenciais</button>

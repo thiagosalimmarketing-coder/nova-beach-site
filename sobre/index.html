@@ -109,11 +109,36 @@ a{color:var(--navy-2);text-decoration:underline;text-underline-offset:3px}
 
   <h2>Contato</h2>
   <ul>
-    <li>WhatsApp geral: <a href="https://wa.me/5519995575156">+55 19 99557-5156</a></li>
-    <li>WhatsApp CT NB360 (alto rendimento): <a href="https://wa.me/5519997086943">+55 19 99708-6943</a></li>
-    <li>Patrocínio e parcerias (Alex): <a href="https://wa.me/5519974022492">+55 19 97402-2492</a></li>
-    <li>Instagram: <a href="https://instagram.com/novabeach.cps">@novabeach.cps</a></li>
+    <li>WhatsApp geral: <a href="https://wa.me/5519995575156?text=Oi!%20Vim%20pela%20p%C3%A1gina%20Sobre%20do%20site%20da%20Nova%20Beach%20e%20quero%20falar%20com%20voc%C3%AAs.%20%E2%9F%A8origem%3A%20site_sobre%20%C2%B7%20cta%3Awa-geral%E2%9F%A9" data-cta="sobre-wa-geral" data-dest="wa">+55 19 99557-5156</a></li>
+    <li>WhatsApp CT NB360 (alto rendimento): <a href="https://wa.me/5519997086943?text=Oi!%20Vim%20pela%20p%C3%A1gina%20Sobre%20do%20site%20da%20Nova%20Beach%20e%20quero%20saber%20sobre%20o%20CT%20NB360%20(alto%20rendimento).%20%E2%9F%A8origem%3A%20site_sobre%20%C2%B7%20cta%3Awa-nb360%E2%9F%A9" data-cta="sobre-wa-nb360" data-dest="wa">+55 19 99708-6943</a></li>
+    <li>Patrocínio e parcerias (Alex): <a href="https://wa.me/5519974022492?text=Oi%20Alex!%20Vim%20pela%20p%C3%A1gina%20Sobre%20da%20Nova%20Beach%20e%20tenho%20interesse%20em%20patroc%C3%ADnio%2Fparcerias.%20%E2%9F%A8origem%3A%20site_sobre%20%C2%B7%20cta%3Awa-patrocinio%E2%9F%A9" data-cta="sobre-wa-patrocinio" data-dest="wa">+55 19 97402-2492</a></li>
+    <li>Instagram: <a href="https://instagram.com/novabeach.cps" data-cta="sobre-instagram" data-dest="external" target="_blank" rel="noopener">@novabeach.cps</a></li>
   </ul>
 </div>
+
+<!-- Pixel + CAPI -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1397968278475446'); fbq('track','PageView');
+(function(){
+  function cookie(n){return (document.cookie.split('; ').find(r=>r.startsWith(n+'='))||'').split('=')[1]||null;}
+  var qs = new URLSearchParams(location.search);
+  var utm = {};
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'].forEach(k=>{var v=qs.get(k); if(v)utm[k]=v;});
+  document.querySelectorAll('[data-cta]').forEach(function(el){
+    el.addEventListener('click', function(){
+      var eventId = 'InitiateCheckout-'+Date.now()+'-'+Math.random().toString(36).slice(2,10);
+      var dest = el.dataset.dest || 'click';
+      var customData = {content_name: el.dataset.cta, content_category:'site_sobre', source:'website', dest: dest, utm_source: utm.utm_source||'direct', utm_campaign: utm.utm_campaign||'', utm_content: el.dataset.cta};
+      try{ fbq('track', dest==='wa'?'Lead':'InitiateCheckout', customData, {eventID:eventId}); }catch(e){}
+      try{
+        fetch('/api/capi',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({event_name:dest==='wa'?'Lead':'InitiateCheckout',event_id:eventId,event_time:Math.floor(Date.now()/1000),event_source_url:location.href,action_source:'website',user_data:{fbp:cookie('_fbp'),fbc:cookie('_fbc')},custom_data:customData}),keepalive:true}).catch(()=>{});
+      }catch(e){}
+    });
+  });
+})();
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1397968278475446&ev=PageView&noscript=1"/></noscript>
+
 </body>
 </html>
