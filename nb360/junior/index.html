@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NB360 Junior — Seletiva Setembro 2026 | Nova Beach</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- META PIXEL — substituir SEU_PIXEL_ID pelo ID real -->
+  <!--
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'SEU_PIXEL_ID');
+    fbq('track', 'PageView');
+  </script>
+  -->
+
+  <style>
+    :root {
+      --green: #8FB800;
+      --green-dark: #6F9000;
+      --green-dim: rgba(143,184,0,0.12);
+      --green-light: #F4FAD8;
+      --navy: #1C2E6E;
+      --navy-dim: rgba(28,46,110,0.08);
+      --gold: #C8A96E;
+      --bg: #F8FBF0;
+      --bg-card: #FFFFFF;
+      --bg-alt: #EEF4DC;
+      --text: #1C2E6E;
+      --text-body: #334155;
+      --muted: #6B7280;
+      --border: rgba(28,46,110,0.10);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 14px 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      background: rgba(248,251,240,0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 12px rgba(28,46,110,0.06);
+    }
+    .nav-logo img { height: 36px; width: auto; display: block; }
+    .nav-badge { font-size: 11px; font-weight: 500; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; }
+    .nav-cta {
+      padding: 9px 22px;
+      background: var(--navy); color: #fff;
+      font-weight: 700; font-size: 13px;
+      border-radius: 5px; text-decoration: none; letter-spacing: 0.3px;
+      white-space: nowrap;
+      transition: background .2s;
+    }
+    .nav-cta:hover { background: #152256; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100svh;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 56px; flex-wrap: wrap;
+      padding: 120px 24px 80px;
+      position: relative; overflow: hidden;
+      background:
+        radial-gradient(ellipse 70% 60% at 15% 55%, rgba(143,184,0,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 85% 15%, rgba(28,46,110,0.04) 0%, transparent 60%),
+        var(--bg);
+    }
+
+    .hero-inner { flex: 1 1 520px; max-width: 640px; position: relative; z-index: 1; }
+
+    .hero-video {
+      flex: 0 1 360px;
+      width: 100%;
+      max-width: 360px;
+      aspect-ratio: 9/16;
+      position: relative;
+      background: #000;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 30px 70px rgba(28,46,110,0.18), 0 0 0 6px rgba(143,184,0,0.06);
+      z-index: 1;
+    }
+    .hero-video video { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .hero-video .hv-play {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 68px; height: 68px; background: rgba(255,255,255,.94);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; z-index: 3; transition: opacity .25s, transform .25s;
+      box-shadow: 0 8px 32px rgba(0,0,0,.35);
+    }
+    .hero-video .hv-play::after {
+      content: ''; border-left: 22px solid var(--navy);
+      border-top: 13px solid transparent; border-bottom: 13px solid transparent;
+      margin-left: 5px;
+    }
+    .hero-video .hv-play:hover { transform: translate(-50%,-50%) scale(1.08); }
+    .hero-video .hv-play.hidden { opacity: 0; pointer-events: none; }
+    .hero-video::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,.35) 100%);
+      pointer-events: none; z-index: 2;
+    }
+    @media (max-width: 900px) {
+      .hero { flex-direction: column; align-items: flex-start; padding-top: 110px; }
+      .hero-video { align-self: center; max-width: 300px; }
+    }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--green-dim);
+      border: 1px solid rgba(143,184,0,0.3);
+      padding: 6px 14px; border-radius: 100px;
+      font-size: 11px; font-weight: 600; letter-spacing: 1.8px; text-transform: uppercase;
+      color: var(--green-dark); margin-bottom: 28px;
+    }
+    .badge-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: blink 2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1}50%{opacity:.25} }
+
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(54px, 9.5vw, 100px);
+      line-height: .93; letter-spacing: .5px; margin-bottom: 28px;
+    }
+    h1 .pre { font-size: .42em; display: block; color: var(--green); letter-spacing: 4px; margin-bottom: 10px; }
+    h1 em { color: var(--navy); font-style: normal; }
+
+    .hero-sub {
+      font-size: 17px; color: var(--muted);
+      max-width: 500px; margin-bottom: 44px; line-height: 1.7;
+    }
+    .hero-sub strong { color: var(--navy); font-weight: 600; }
+
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-bottom: 56px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 16px 32px;
+      background: var(--navy); color: #fff;
+      font-weight: 700; font-size: 15px;
+      border-radius: 6px; text-decoration: none; letter-spacing: .3px;
+      transition: background .2s, transform .15s;
+    }
+    .btn:hover { background: #152256; transform: translateY(-1px); }
+    .btn svg { width: 17px; height: 17px; flex-shrink: 0; }
+    .btn-note { font-size: 13px; color: var(--muted); }
+
+    .stats { display: flex; gap: 44px; flex-wrap: wrap; }
+    .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 44px; line-height: 1; color: var(--navy); }
+    .stat-label { font-size: 12px; color: var(--muted); font-weight: 500; margin-top: 2px; letter-spacing: .3px; }
+
+    /* ── DIVIDERS ── */
+    .partners {
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 22px 24px; background: var(--bg-card);
+      display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap;
+    }
+    .partners-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); }
+    .partner-name {
+      font-size: 13px; font-weight: 700; color: var(--navy); opacity: .55;
+      letter-spacing: 1px; text-transform: uppercase;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 7px;
+      transition: opacity .2s, color .2s;
+    }
+    .partner-name:hover { opacity: 1; color: var(--green-dark); }
+    .partner-name svg { width: 13px; height: 13px; flex-shrink: 0; opacity: .8; }
+
+    .ig-inline {
+      display: inline-flex; align-items: center; gap: 5px;
+      margin-top: 8px;
+      font-size: 12px; font-weight: 600; color: var(--muted);
+      text-decoration: none; letter-spacing: .3px;
+      transition: color .2s;
+    }
+    .ig-inline:hover { color: var(--green-dark); }
+    .ig-inline svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+    .pcard-ig {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 11.5px; font-weight: 600; color: var(--green-dark);
+      text-decoration: none; margin-top: 4px;
+      transition: opacity .2s;
+    }
+    .pcard-ig:hover { opacity: .75; }
+    .pcard-ig svg { width: 12px; height: 12px; }
+
+    /* ── SECTION BASE ── */
+    .s { padding: 80px 24px; }
+    .s-inner { max-width: 960px; margin: 0 auto; }
+    .s-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--green); font-weight: 700; margin-bottom: 14px; }
+    h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(38px, 6.5vw, 68px); line-height: .95; margin-bottom: 18px; color: var(--navy); }
+    .s-sub { font-size: 16px; color: var(--muted); max-width: 540px; line-height: 1.72; }
+
+    /* ── PILLARS ── */
+    .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 14px; margin-top: 48px; }
+    .pillar {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 28px 22px; position: relative; overflow: hidden;
+      box-shadow: 0 2px 8px rgba(28,46,110,0.05);
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+    }
+    .pillar:hover { border-color: rgba(143,184,0,.4); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(28,46,110,0.10); }
+    .pillar-icon { font-size: 30px; margin-bottom: 14px; }
+    .pillar-title { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: .3px; margin-bottom: 8px; color: var(--navy); }
+    .pillar-desc { font-size: 13.5px; color: var(--muted); line-height: 1.62; }
+    .pillar::after {
+      content:''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--green), transparent);
+      opacity: 0; transition: opacity .2s;
+    }
+    .pillar:hover::after { opacity: 1; }
+
+    /* ── SCHEDULE ── */
+    .sched-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 12px; margin-top: 40px; }
+    .sched-day { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .sched-head {
+      background: var(--navy); border-bottom: 1px solid rgba(28,46,110,.2);
+      padding: 12px 16px;
+      font-family: 'Bebas Neue', sans-serif; font-size: 19px; letter-spacing: 1px; color: #fff;
+    }
+    .sched-items { padding: 14px 16px; display: flex; flex-direction: column; gap: 9px; }
+    .sched-item { font-size: 13px; color: var(--muted); display: flex; gap: 8px; align-items: flex-start; }
+    .sched-item::before { content:'▸'; color: var(--green); font-size: 10px; margin-top: 2px; flex-shrink: 0; }
+
+    /* ── COACHES ── */
+    .coaches { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 20px; margin-top: 48px; }
+    .coach {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 32px 26px;
+    }
+    .coach-av {
+      width: 58px; height: 58px;
+      background: var(--navy);
+      border: none;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: #fff;
+      margin-bottom: 20px;
+    }
+    .coach-name { font-family: 'Bebas Neue', sans-serif; font-size: 27px; margin-bottom: 4px; color: var(--navy); }
+    .coach-role { font-size: 12px; color: var(--green); font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 12px; }
+    .coach-bio { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+    .partner-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 14px; margin-top: 32px; }
+    .pcard {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+      padding: 22px 18px; display: flex; align-items: center; gap: 14px;
+    }
+    .pcard-icon {
+      width: 46px; height: 46px; flex-shrink: 0;
+      background: var(--green-dim); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; font-size: 22px;
+    }
+    .pcard-name { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+    .pcard-desc { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+    .vid-wrapper { position:relative; max-width:400px; margin:0 auto; padding:0 52px; }
+    .vid-carousel { overflow:hidden; border-radius:16px; box-shadow:0 20px 50px rgba(28,46,110,0.18); }
+    .vid-track { display:flex; transition:transform .4s ease; }
+    .vid-slide { flex:0 0 100%; aspect-ratio:9/16; background:#111; position:relative; border-radius:16px; overflow:hidden; }
+    .vid-slide video { width:100%; height:100%; display:block; object-fit:cover; }
+    .vid-play-btn { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:64px; height:64px; background:rgba(255,255,255,.94); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; pointer-events:auto; transition:opacity .25s, transform .25s; z-index:5; box-shadow:0 6px 24px rgba(0,0,0,.35); }
+    .vid-play-btn::after { content:''; border-left:20px solid var(--navy); border-top:12px solid transparent; border-bottom:12px solid transparent; margin-left:4px; }
+    .vid-play-btn:hover { transform:translate(-50%,-50%) scale(1.08); }
+    .vid-play-btn.hidden { opacity:0; pointer-events:none; }
+    .vid-counter { position:absolute; top:14px; right:14px; background:rgba(0,0,0,.55); color:#fff; font-size:12px; font-weight:600; padding:4px 10px; border-radius:100px; z-index:4; letter-spacing:.5px; backdrop-filter:blur(4px); }
+    .vid-nav { position:absolute; top:50%; transform:translateY(-50%); background:var(--navy); color:#fff; border:none; width:42px; height:42px; border-radius:50%; font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:10; transition:background .2s, transform .15s; box-shadow:0 4px 14px rgba(28,46,110,.35); }
+    .vid-nav:hover { background:#152256; transform:translateY(-50%) scale(1.06); }
+    .vid-prev { left:0; }
+    .vid-next { right:0; }
+    .vid-dots { display:flex; justify-content:center; gap:8px; margin-top:20px; flex-wrap:wrap; }
+    .vid-dot { width:9px; height:9px; border-radius:50%; background:var(--border); cursor:pointer; transition:background .2s, transform .2s; border:none; padding:0; }
+    .vid-dot:hover { transform:scale(1.2); }
+    .vid-dot.active { background:var(--navy); transform:scale(1.25); }
+    @media(max-width:560px){ .vid-wrapper{padding:0 44px; max-width:340px;} .vid-nav{width:36px;height:36px;font-size:15px;} }
+
+    /* ── TIMELINE ── */
+    .timeline { margin-top: 48px; display: flex; flex-direction: column; }
+    .tl-step { display: grid; grid-template-columns: 50px 1fr; gap: 20px; padding-bottom: 32px; }
+    .tl-step:last-child { padding-bottom: 0; }
+    .tl-left { display: flex; flex-direction: column; align-items: center; }
+    .tl-dot {
+      width: 50px; height: 50px; flex-shrink: 0;
+      background: var(--navy); border: 2px solid var(--green); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--green); z-index: 1;
+    }
+    .tl-line { flex: 1; width: 2px; background: linear-gradient(to bottom, rgba(200,255,0,.2), rgba(200,255,0,.04)); margin-top: 8px; }
+    .tl-step:last-child .tl-line { display: none; }
+    .tl-body { padding-top: 11px; }
+    .tl-tag { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--green); font-weight: 700; margin-bottom: 5px; }
+    .tl-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; margin-bottom: 6px; color: var(--navy); }
+    .tl-desc { font-size: 14px; color: var(--muted); line-height: 1.65; max-width: 500px; }
+
+    /* ── FORM SECTION ── */
+    .form-s {
+      background: linear-gradient(135deg, rgba(143,184,0,.06) 0%, var(--bg-alt) 100%);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 88px 24px;
+    }
+    .form-wrap { max-width: 720px; margin: 0 auto; }
+    .form-wrap h2 { text-align: center; }
+    .form-wrap .s-label { text-align: center; }
+    .form-wrap .s-sub { text-align: center; margin: 0 auto 44px; }
+
+    .form-section-title {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--green); padding-bottom: 12px;
+      border-bottom: 1px solid var(--border); margin-bottom: 4px;
+    }
+
+    .form-brief {
+      background: rgba(28,46,110,.03);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--green);
+      border-radius: 10px;
+      padding: 22px 24px;
+      margin-bottom: 40px;
+    }
+    .fb-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px; letter-spacing: .5px;
+      color: var(--navy); margin-bottom: 12px;
+    }
+    .fb-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .fb-list li {
+      font-size: 13.5px; color: var(--text-body); line-height: 1.5;
+      padding-left: 22px; position: relative;
+    }
+    .fb-list li::before {
+      content: '✓'; position: absolute; left: 0; top: 0;
+      color: var(--green); font-weight: 700; font-size: 14px;
+    }
+    .fb-list strong { color: var(--navy); font-weight: 700; }
+    .form { display: flex; flex-direction: column; gap: 20px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .fg { display: flex; flex-direction: column; gap: 6px; }
+    .fg.full { grid-column: 1 / -1; }
+    .flabel { font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); }
+    .finput, .fselect, .ftextarea {
+      width: 100%; padding: 13px 16px;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 8px; color: var(--text);
+      font-family: 'Outfit', sans-serif; font-size: 15px;
+      outline: none; -webkit-appearance: none;
+      transition: border-color .2s, background .2s, box-shadow .2s;
+    }
+    .fselect {
+      appearance: none; -moz-appearance: none;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7' fill='none'><path d='M1 1l5 5 5-5' stroke='%231C2E6E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+    }
+    .finput:focus, .fselect:focus, .ftextarea:focus {
+      border-color: var(--green);
+      background-color: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(143,184,0,0.12);
+    }
+    /* Só marca inválido após o usuário interagir (evita vermelho de cara) */
+    .form.attempted .finput:invalid,
+    .form.attempted .fselect:invalid,
+    .form.attempted .ftextarea:invalid,
+    .finput:not(:placeholder-shown):invalid,
+    .ftextarea:not(:placeholder-shown):invalid {
+      border-color: #D9534F;
+      background-color: #FFF6F5;
+    }
+    .form.attempted .finput:invalid:focus,
+    .form.attempted .fselect:invalid:focus {
+      box-shadow: 0 0 0 3px rgba(217,83,79,0.15);
+    }
+    .finput::placeholder, .ftextarea::placeholder { color: rgba(107,114,128,.6); }
+    .fselect option { background: #FFFFFF; color: var(--text); }
+    .ftextarea { resize: vertical; min-height: 90px; line-height: 1.5; }
+    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+
+    .btn-sub {
+      width: 100%; padding: 18px; margin-top: 6px;
+      background: var(--navy); color: #fff;
+      border: none; border-radius: 8px;
+      font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 700;
+      cursor: pointer; letter-spacing: .3px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: background .2s, transform .15s;
+    }
+    .btn-sub:hover { background: #152256; transform: translateY(-1px); }
+    .btn-sub svg { width: 18px; height: 18px; }
+    .form-note { text-align: center; font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.55; }
+
+    /* ── FAQ ── */
+    .faqs { display: flex; flex-direction: column; gap: 10px; margin-top: 48px; }
+    .faq-i { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .faq-q {
+      padding: 20px 22px; font-weight: 600; font-size: 15px;
+      cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      user-select: none; transition: color .2s;
+    }
+    .faq-q:hover { color: var(--green); }
+    .faq-q svg { width: 17px; height: 17px; flex-shrink: 0; color: var(--green); transition: transform .28s; }
+    .faq-a {
+      max-height: 0; overflow: hidden; padding: 0 22px;
+      font-size: 14px; color: var(--muted); line-height: 1.7;
+      transition: max-height .3s ease, padding .3s ease;
+    }
+    .faq-i.open .faq-a { max-height: 240px; padding: 0 22px 20px; }
+    .faq-i.open .faq-q svg { transform: rotate(45deg); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 44px 24px; border-top: 1px solid var(--border);
+      text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6px;
+    }
+    .foot-logo img { height: 52px; width: auto; display: block; margin: 0 auto 12px; }
+    .foot-addr { font-size: 13px; color: var(--muted); }
+    .foot-copy { font-size: 11px; color: rgba(28,46,110,.3); margin-top: 20px; }
+
+    /* ── ALT BG ── */
+    .bg-alt { background: var(--bg-alt); }
+
+    /* ── FLOATING WHATSAPP CTA ── */
+    .fab-wa {
+      position: fixed; z-index: 90;
+      right: 22px; bottom: 22px;
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 22px 14px 18px;
+      background: #25D366; color: #fff;
+      border-radius: 100px; text-decoration: none;
+      font-weight: 700; font-size: 14px; letter-spacing: .2px;
+      box-shadow: 0 12px 32px rgba(37,211,102,0.42), 0 2px 8px rgba(0,0,0,0.15);
+      cursor: pointer; border: none;
+      transition: transform .18s ease, box-shadow .18s ease;
+      animation: fabPulse 2.6s ease-in-out infinite;
+    }
+    .fab-wa:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 18px 40px rgba(37,211,102,0.55); }
+    .fab-wa svg { width: 22px; height: 22px; flex-shrink: 0; fill: currentColor; }
+    @keyframes fabPulse {
+      0%, 100% { box-shadow: 0 12px 32px rgba(37,211,102,0.42), 0 0 0 0 rgba(37,211,102,0.55); }
+      50%      { box-shadow: 0 12px 32px rgba(37,211,102,0.42), 0 0 0 14px rgba(37,211,102,0); }
+    }
+    @media (max-width: 600px) {
+      .fab-wa { right: 16px; bottom: 16px; padding: 13px 18px 13px 16px; font-size: 13px; }
+      .fab-wa .fab-label { display: none; }
+      .fab-wa { border-radius: 50%; width: 56px; height: 56px; padding: 0; justify-content: center; }
+      .fab-wa svg { width: 26px; height: 26px; }
+    }
+
+    /* ── LOGO PATTERN BACKGROUND ── */
+    .logo-pattern-s { position: relative; overflow: hidden; }
+    .logo-pattern-s::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url('./nb360-logo.png');
+      background-repeat: repeat;
+      background-size: 100px auto;
+      opacity: 0.05;
+      pointer-events: none;
+      z-index: 0;
+      transform: rotate(-8deg) scale(1.15);
+      transform-origin: center;
+    }
+    .logo-pattern-s .s-inner { position: relative; z-index: 1; }
+
+    /* Variação espelhada — pra ritmo visual sem repetição */
+    .logo-pattern-alt { position: relative; overflow: hidden; }
+    .logo-pattern-alt::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url('./nb360-logo.png');
+      background-repeat: repeat;
+      background-size: 80px auto;
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 0;
+      transform: rotate(12deg) scale(1.2);
+      transform-origin: center;
+    }
+    .logo-pattern-alt .s-inner { position: relative; z-index: 1; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 600px) {
+      .nav-badge { display: none; }
+      .stats { gap: 28px; }
+      .partners { gap: 20px; }
+    }
+  </style>
+  <link rel="icon" type="image/png" href="./nb360-logo.png">
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo"><img src="./nb360-logo.png" alt="NB360"></div>
+  <div class="nav-badge">Categoria Juvenil · Seletiva Set/2026</div>
+  <a href="#inscricao" class="nav-cta">Inscrever-se</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="badge">
+      <span class="badge-dot"></span>
+      Seletiva · Setembro 2026 · Vagas Limitadas
+    </div>
+    <h1>
+      <span class="pre">Seu filho.</span>
+      A MESMA<br><em>METODOLOGIA</em><br>DOS PROFISSIONAIS.
+    </h1>
+    <p class="hero-sub">
+      O NB360 abre a <strong>categoria juvenil</strong> para atletas de <strong>14 a 18 anos</strong>.
+      A mesma estrutura que já formou atletas no <strong>top 20 e top 30 do mundo</strong> —
+      agora acessível para jovens talentos de todo o Brasil.
+    </p>
+    <div class="hero-actions">
+      <a href="#inscricao" class="btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Garantir vaga na seletiva
+      </a>
+      <span class="btn-note">Inscrição gratuita · Sem compromisso</span>
+    </div>
+    <div class="stats">
+      <div>
+        <div class="stat-num">TOP 20</div>
+        <div class="stat-label">Atletas formados no mundo</div>
+      </div>
+      <div>
+        <div class="stat-num">4×</div>
+        <div class="stat-label">Dias de treino por semana</div>
+      </div>
+      <div>
+        <div class="stat-num">14–18</div>
+        <div class="stat-label">Anos · Categoria Juvenil</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-video">
+    <video id="heroVideo" src="./nb360-snap3.mp4" playsinline preload="metadata" controls></video>
+    <div class="hv-play" onclick="playHeroVideo(this)"></div>
+  </div>
+</section>
+
+<!-- PARCEIROS -->
+<div class="partners">
+  <span class="partners-label">Parceiros do programa</span>
+  <a class="partner-name" href="https://www.instagram.com/novabeach.cps/" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg>
+    Nova Beach
+  </a>
+  <a class="partner-name" href="https://www.instagram.com/institutomood/" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg>
+    Instituto Mood
+  </a>
+  <a class="partner-name" href="https://www.instagram.com/lotus.preparacaofisica/" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg>
+    Lotus Prep. Física
+  </a>
+  <a class="partner-name" href="https://www.instagram.com/bts_beachtennischool_brasil/" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg>
+    Método BTS
+  </a>
+</div>
+
+<!-- VÍDEO DO PROJETO -->
+<section class="s bg-alt" style="padding: 72px 24px;">
+  <div class="s-inner" style="text-align:center;">
+    <div class="s-label" style="text-align:center; margin-bottom:12px;">O Projeto em Vídeo</div>
+    <h2 style="text-align:center; margin-bottom:8px;">CONHEÇA O <span style="color:var(--green)">NB360.</span></h2>
+    <p style="font-size:15px; color:var(--muted); margin-bottom:40px; max-width:480px; margin-left:auto; margin-right:auto; line-height:1.65;">
+      Entenda o programa, a metodologia e quem está por trás de cada treino.
+    </p>
+    <div style="display:flex; justify-content:center;">
+      <div style="
+        position:relative;
+        width:100%;
+        max-width:380px;
+        background:#000;
+        border-radius:16px;
+        overflow:hidden;
+        border:1px solid var(--border);
+        box-shadow: 0 0 60px rgba(200,255,0,0.06);
+      ">
+        <!-- Para produção: substituir src pelo link do vídeo hospedado (CDN, YouTube embed, etc.) -->
+        <!-- Para preview local: o arquivo Instagram.mp4 deve estar na mesma pasta que este HTML -->
+        <video
+          src="./nb360-projeto.mp4"
+          controls
+          playsinline
+          preload="metadata"
+          style="
+            width:100%;
+            display:block;
+            max-height:680px;
+            object-fit:cover;
+            border-radius:16px;
+          "
+        ></video>
+      </div>
+    </div>
+    <p style="font-size:12px; color:var(--muted); margin-top:20px; opacity:.6;">
+      Bazon + João Pedro · Método BTS · Instituto Mood · Lotus Preparação Física
+    </p>
+  </div>
+</section>
+
+<!-- O PROGRAMA -->
+<section class="s">
+  <div class="s-inner">
+    <div class="s-label">O Programa</div>
+    <h2>NÃO É UMA<br>ESCOLINHA.</h2>
+    <p class="s-sub">
+      O NB360 é um programa de alto rendimento. Os atletas juvenis terão acesso à mesma grade de atividades
+      dos profissionais — treinamento integrado, metodologia periodizada e suporte multidisciplinar completo.
+    </p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-icon">🎯</div>
+        <div class="pillar-title">Técnico-Tático</div>
+        <div class="pillar-desc">Treinamento específico de beach tennis com análise de jogo e desenvolvimento tático estruturado.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">⚡</div>
+        <div class="pillar-title">Preparação Física</div>
+        <div class="pillar-desc">PRPE periodizado — força, velocidade e resistência adaptados ao atleta juvenil de alto rendimento.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🩺</div>
+        <div class="pillar-title">Fisioterapia</div>
+        <div class="pillar-desc">Acompanhamento preventivo integrado à rotina de treinos — não separado, parte do programa.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🧠</div>
+        <div class="pillar-title">Desenvolvimento Mental</div>
+        <div class="pillar-desc">Psicologia do esporte em grupo — performance mental, foco e preparação competitiva.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">📊</div>
+        <div class="pillar-title">Tecnologia e Dados</div>
+        <div class="pillar-desc">Testes MOOD e avaliações periódicas para medir a evolução com precisão científica.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">📚</div>
+        <div class="pillar-title">Treino Teórico</div>
+        <div class="pillar-desc">Formação tática off-court — leitura de jogo, tomada de decisão e cultura esportiva.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENDA SEMANAL -->
+<section class="s bg-alt">
+  <div class="s-inner">
+    <div class="s-label">Agenda Semanal</div>
+    <h2>A GRADE DOS<br><span style="color:var(--green)">PROFISSIONAIS.</span></h2>
+    <p class="s-sub">
+      Quatro dias de treinamento estruturado por semana, dois locais, seis modalidades integradas.
+      Os atletas juvenis terão acesso à mesma programação do time profissional.
+    </p>
+    <div class="sched-grid">
+      <div class="sched-day">
+        <div class="sched-head">Segunda</div>
+        <div class="sched-items">
+          <div class="sched-item">Testes MOOD</div>
+          <div class="sched-item">Tático/Técnico · Nova Beach</div>
+          <div class="sched-item">PRPE Física · Mood</div>
+          <div class="sched-item">Fisioterapia · Mood</div>
+          <div class="sched-item">Atividade Teórica</div>
+        </div>
+      </div>
+      <div class="sched-day">
+        <div class="sched-head">Terça</div>
+        <div class="sched-items">
+          <div class="sched-item">Fisioterapia · Mood</div>
+          <div class="sched-item">Tático/Técnico · Nova Beach</div>
+          <div class="sched-item">PRPE Física · Mood</div>
+          <div class="sched-item">Treino Teórico</div>
+          <div class="sched-item">Tático/Técnico · Nova Beach</div>
+        </div>
+      </div>
+      <div class="sched-day">
+        <div class="sched-head">Quarta</div>
+        <div class="sched-items">
+          <div class="sched-item">Fisioterapia · Mood</div>
+          <div class="sched-item">Tático/Técnico · Nova Beach</div>
+          <div class="sched-item">PRPE Física · Mood</div>
+          <div class="sched-item">Psicólogo em Grupo</div>
+          <div class="sched-item">Tático/Técnico · Nova Beach</div>
+        </div>
+      </div>
+      <div class="sched-day">
+        <div class="sched-head">Quinta</div>
+        <div class="sched-items">
+          <div class="sched-item">Testes MOOD</div>
+          <div class="sched-item">Tático/Técnico · Nova Beach</div>
+          <div class="sched-item">PRPE Física · Mood</div>
+          <div class="sched-item">Fisioterapia · Mood</div>
+          <div class="sched-item">Tático/Técnico · Nova Beach</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- O TIME TÉCNICO -->
+<section class="s logo-pattern-s">
+  <div class="s-inner">
+    <div class="s-label">O Time Técnico</div>
+    <h2>QUEM VAI<br>ORIENTAR SEU FILHO.</h2>
+    <div class="coaches">
+      <div class="coach">
+        <div class="coach-av">B</div>
+        <div class="coach-name">Bazon</div>
+        <div class="coach-role">Professor · NB360</div>
+        <div class="coach-bio">Responsável pela coordenação técnica do programa NB360, com atletas formados no ranking mundial de beach tennis — incluindo nomes no top 20 e top 30 do mundo.</div>
+      </div>
+      <div class="coach">
+        <div class="coach-av">JP</div>
+        <div class="coach-name">João Pedro</div>
+        <div class="coach-role">Método BTS · Coordenador Tático</div>
+        <div class="coach-bio">Criador do Método BTS (Beach Tennis System), responsável pelo desenvolvimento técnico-tático dos atletas do programa desde o início do projeto.</div>
+        <a class="ig-inline" href="https://www.instagram.com/jpe_carvalho/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg>
+          @jpe_carvalho
+        </a>
+      </div>
+    </div>
+    <div class="partner-cards">
+      <div class="pcard">
+        <div class="pcard-icon">🏥</div>
+        <div>
+          <div class="pcard-name">Instituto Mood</div>
+          <div class="pcard-desc">Fisioterapia, testes de performance e acompanhamento multidisciplinar integrado</div>
+          <a class="pcard-ig" href="https://www.instagram.com/institutomood/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg>
+            @institutomood
+          </a>
+        </div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-icon">⚡</div>
+        <div>
+          <div class="pcard-name">Lotus Preparação Física</div>
+          <div class="pcard-desc">PRPE periodizado e treinamento físico de alto rendimento para beach tennis</div>
+          <a class="pcard-ig" href="https://www.instagram.com/lotus.preparacaofisica/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg>
+            @lotus.preparacaofisica
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ATLETAS EM AÇÃO -->
+<section class="s">
+  <div class="s-inner">
+    <div class="s-label">O Programa em Ação</div>
+    <h2>VEJA COMO É<br>TREINAR NO <span style="color:var(--green)">NB360.</span></h2>
+    <p class="s-sub" style="max-width:560px;margin:0 auto 3rem;">Metodologia de alto rendimento, estrutura profissional e evolução real — é assim que o NB360 Junior funciona no dia a dia.</p>
+    <div class="vid-wrapper">
+      <button class="vid-nav vid-prev" onclick="vidMove(-1)" aria-label="Anterior">&#8592;</button>
+      <div class="vid-carousel" id="vidCarousel">
+        <div class="vid-counter"><span id="vidCurrent">1</span> / <span id="vidTotal">5</span></div>
+        <div class="vid-track" id="vidTrack">
+          <div class="vid-slide"><video src="./nb360-treino.mp4" playsinline preload="none" controls></video><div class="vid-play-btn"></div></div>
+          <div class="vid-slide"><video src="./nb360-isadora.mp4" playsinline preload="none" controls></video><div class="vid-play-btn"></div></div>
+          <div class="vid-slide"><video src="./nb360-snap.mp4" playsinline preload="none" controls></video><div class="vid-play-btn"></div></div>
+          <div class="vid-slide"><video src="./nb360-snap2.mp4" playsinline preload="none" controls></video><div class="vid-play-btn"></div></div>
+          <div class="vid-slide"><video src="./nb360-snap4.mp4" playsinline preload="none" controls></video><div class="vid-play-btn"></div></div>
+        </div>
+      </div>
+      <button class="vid-nav vid-next" onclick="vidMove(1)" aria-label="Próximo">&#8594;</button>
+    </div>
+    <div class="vid-dots" id="vidDots">
+      <button class="vid-dot active" onclick="vidGo(0)" aria-label="Vídeo 1"></button>
+      <button class="vid-dot" onclick="vidGo(1)" aria-label="Vídeo 2"></button>
+      <button class="vid-dot" onclick="vidGo(2)" aria-label="Vídeo 3"></button>
+      <button class="vid-dot" onclick="vidGo(3)" aria-label="Vídeo 4"></button>
+      <button class="vid-dot" onclick="vidGo(4)" aria-label="Vídeo 5"></button>
+    </div>
+
+    <script>
+      var _vi=0,_vn=5;
+      function vidGo(n){
+        document.querySelectorAll('#vidCarousel .vid-slide video').forEach(function(v){
+          v.pause();
+          if(v.nextElementSibling) v.nextElementSibling.classList.remove('hidden');
+        });
+        _vi=n;
+        document.getElementById('vidTrack').style.transform='translateX(-'+(n*100)+'%)';
+        document.querySelectorAll('#vidDots .vid-dot').forEach(function(d,i){d.classList.toggle('active',i===_vi);});
+        document.getElementById('vidCurrent').textContent=(_vi+1);
+      }
+      function vidMove(d){vidGo((_vi+d+_vn)%_vn);}
+      document.addEventListener('DOMContentLoaded',function(){
+        document.querySelectorAll('.vid-play-btn').forEach(function(btn){
+          btn.addEventListener('click',function(){
+            this.previousElementSibling.play();
+            this.classList.add('hidden');
+          });
+        });
+        document.querySelectorAll('#vidCarousel video').forEach(function(v){
+          v.addEventListener('pause',function(){ if(this.nextElementSibling) this.nextElementSibling.classList.remove('hidden'); });
+          v.addEventListener('ended',function(){ if(this.nextElementSibling) this.nextElementSibling.classList.remove('hidden'); });
+        });
+      });
+    </script>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="s bg-alt logo-pattern-alt">
+  <div class="s-inner">
+    <div class="s-label">Como Funciona</div>
+    <h2>DA INSCRIÇÃO<br>AO <span style="color:var(--green)">PROGRAMA.</span></h2>
+    <div class="timeline">
+      <div class="tl-step">
+        <div class="tl-left"><div class="tl-dot">1</div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-tag">Agora</div>
+          <div class="tl-title">Inscrição na Seletiva</div>
+          <div class="tl-desc">Preencha o formulário abaixo com os dados do atleta. Gratuito e sem compromisso — você garante uma vaga na avaliação de setembro.</div>
+        </div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-left"><div class="tl-dot">2</div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-tag">Setembro 2026</div>
+          <div class="tl-title">Seletiva Presencial</div>
+          <div class="tl-desc">Os atletas inscritos participam da seletiva na Nova Beach. A avaliação considera técnica, potencial e perfil de alto rendimento.</div>
+        </div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-left"><div class="tl-dot">3</div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-tag">Resultado</div>
+          <div class="tl-title">Selecionados Comunicados</div>
+          <div class="tl-desc">Os selecionados recebem contato direto da equipe NB360 com todas as informações sobre o programa e as condições de participação.</div>
+        </div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-left"><div class="tl-dot">4</div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-tag">Início do Programa</div>
+          <div class="tl-title">Treinamento NB360 Junior</div>
+          <div class="tl-desc">Seu filho passa a treinar dentro da mesma estrutura e metodologia dos atletas profissionais, com acompanhamento completo durante todo o ciclo.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULÁRIO -->
+<section class="form-s" id="inscricao">
+  <div class="form-wrap">
+    <div class="s-label">Seletiva · Programa de Alto Rendimento</div>
+    <h2>QUER FORMAR<br>UM <span style="color:var(--green)">ATLETA?</span></h2>
+    <p class="s-sub">
+      O NB360 Junior é para famílias que enxergam o beach tennis como caminho de carreira do filho.
+      A avaliação é criteriosa — nem todos serão selecionados.
+    </p>
+
+    <div class="form-brief">
+      <div class="fb-title">O que esperamos do atleta e da família:</div>
+      <ul class="fb-list">
+        <li><strong>Dedicação real:</strong> 4 treinos por semana (Nova Beach + Instituto Mood)</li>
+        <li><strong>Deslocamento até Campinas</strong> nos dias de treino</li>
+        <li><strong>Foco no rendimento</strong> — não é escolinha, aula recreativa ou condicionamento</li>
+        <li><strong>Compromisso mínimo de 12 meses</strong> com a metodologia</li>
+      </ul>
+    </div>
+
+    <form class="form" id="seletivaForm" onsubmit="handleSubmit(event)">
+
+      <!-- BLOCO 1: DADOS DO ATLETA -->
+      <div class="form-section-title">Dados do Atleta</div>
+      <div class="form-row">
+        <div class="fg">
+          <label class="flabel" for="nome">Nome completo</label>
+          <input class="finput" type="text" id="nome" placeholder="Nome do atleta" required autocomplete="name">
+        </div>
+        <div class="fg">
+          <label class="flabel" for="idade">Idade</label>
+          <select class="fselect" id="idade" required onchange="toggleResponsavel(this.value)">
+            <option value="" disabled selected>Selecionar</option>
+            <option value="14">14 anos</option>
+            <option value="15">15 anos</option>
+            <option value="16">16 anos</option>
+            <option value="17">17 anos</option>
+            <option value="18">18 anos</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="fg">
+          <label class="flabel" for="cidade">Cidade</label>
+          <input class="finput" type="text" id="cidade" placeholder="Ex: Campinas" required>
+        </div>
+        <div class="fg">
+          <label class="flabel" for="estado">Estado</label>
+          <input class="finput" type="text" id="estado" placeholder="Ex: SP" maxlength="2" required>
+        </div>
+      </div>
+
+      <!-- BLOCO 2: DADOS DO RESPONSÁVEL / CONTATO -->
+      <div class="form-section-title" id="resp_section_title" style="margin-top:8px">Dados do Responsável</div>
+      <div class="form-row" id="resp_nome_row">
+        <div class="fg full" id="resp_nome_fg">
+          <label class="flabel" for="resp_nome">Nome do responsável</label>
+          <input class="finput" type="text" id="resp_nome" placeholder="Nome completo" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="fg">
+          <label class="flabel" for="whatsapp" id="whatsapp_label">WhatsApp do responsável (com DDD)</label>
+          <input class="finput" type="tel" id="whatsapp"
+                 placeholder="(19) 99999-9999"
+                 required autocomplete="tel"
+                 inputmode="numeric"
+                 maxlength="15"
+                 pattern="\(\d{2}\)\s?\d{4,5}-\d{4}"
+                 title="Formato: (19) 99999-9999"
+                 oninput="maskPhone(this)">
+        </div>
+        <div class="fg">
+          <label class="flabel" for="email" id="email_label">E-mail do responsável</label>
+          <input class="finput" type="email" id="email"
+                 placeholder="email@exemplo.com"
+                 required autocomplete="email"
+                 pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$"
+                 title="Digite um e-mail válido (ex: nome@dominio.com)">
+        </div>
+      </div>
+
+      <!-- BLOCO 3: TRAJETÓRIA ESPORTIVA -->
+      <div class="form-section-title" style="margin-top:8px">Trajetória no Beach Tennis</div>
+      <div class="form-row">
+        <div class="fg">
+          <label class="flabel" for="tempo_bt">Há quanto tempo pratica?</label>
+          <select class="fselect" id="tempo_bt" required>
+            <option value="" disabled selected>Selecionar</option>
+            <option value="Menos de 6 meses">Menos de 6 meses</option>
+            <option value="6 meses a 1 ano">6 meses a 1 ano</option>
+            <option value="1 a 2 anos">1 a 2 anos</option>
+            <option value="2 a 4 anos">2 a 4 anos</option>
+            <option value="Mais de 4 anos">Mais de 4 anos</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label class="flabel" for="frequencia">Treina quantos dias/semana hoje?</label>
+          <select class="fselect" id="frequencia" required>
+            <option value="" disabled selected>Selecionar</option>
+            <option value="1 dia">1 dia por semana</option>
+            <option value="2 dias">2 dias por semana</option>
+            <option value="3 dias">3 dias por semana</option>
+            <option value="4 dias ou mais">4 dias ou mais por semana</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="fg">
+          <label class="flabel" for="nivel">Nível atual</label>
+          <select class="fselect" id="nivel" required>
+            <option value="" disabled selected>Selecionar</option>
+            <option value="Iniciante">Iniciante</option>
+            <option value="Intermediário">Intermediário</option>
+            <option value="Avançado">Avançado</option>
+            <option value="Federado / Competitivo">Federado / Competitivo</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label class="flabel" for="professor">Treina com professor particular?</label>
+          <select class="fselect" id="professor" required>
+            <option value="" disabled selected>Selecionar</option>
+            <option value="Sim, individual">Sim, aula particular individual</option>
+            <option value="Sim, em grupo">Sim, em turma/grupo</option>
+            <option value="Não, só joga por conta">Não, só joga por conta</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="fg">
+          <label class="flabel" for="competiu">Já compete em torneios?</label>
+          <select class="fselect" id="competiu" required onchange="toggleRanking(this.value)">
+            <option value="" disabled selected>Selecionar</option>
+            <option value="Não compete">Não compete ainda</option>
+            <option value="Amador local">Amador / local</option>
+            <option value="Circuito regional">Circuito regional</option>
+            <option value="Estadual/Nacional">Estadual / Nacional</option>
+            <option value="Internacional">Internacional</option>
+          </select>
+        </div>
+        <div class="fg" id="ranking_fg" style="display:none">
+          <label class="flabel" for="ranking">Melhor resultado / ranking</label>
+          <input class="finput" type="text" id="ranking" placeholder="Ex: campeão sub-16 regional 2025">
+        </div>
+      </div>
+
+      <!-- BLOCO 4: COMPROMETIMENTO -->
+      <div class="form-section-title" style="margin-top:8px">Compromisso com o Programa</div>
+      <div class="form-row">
+        <div class="fg">
+          <label class="flabel" for="objetivo">Objetivo do atleta no NB360</label>
+          <select class="fselect" id="objetivo" required>
+            <option value="" disabled selected>Selecionar</option>
+            <option value="Se tornar atleta profissional">Se tornar atleta profissional</option>
+            <option value="Competir em alto nível amador">Competir em alto nível amador</option>
+            <option value="Evoluir com metodologia profissional">Evoluir com metodologia profissional</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label class="flabel" for="disponibilidade">Disponibilidade para treinar 4x/semana</label>
+          <select class="fselect" id="disponibilidade" required>
+            <option value="" disabled selected>Selecionar</option>
+            <option value="Total disponibilidade">Sim, total disponibilidade</option>
+            <option value="Sim, com ajustes na rotina escolar">Sim, com ajustes na rotina escolar</option>
+            <option value="Preciso avaliar em família">Preciso avaliar em família</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="fg full">
+          <label class="flabel" for="deslocamento">Consegue se deslocar para treinar em Campinas?</label>
+          <select class="fselect" id="deslocamento" required>
+            <option value="" disabled selected>Selecionar</option>
+            <option value="Moro em Campinas ou região">Moro em Campinas ou região</option>
+            <option value="Moro em outra cidade, mas consigo">Moro em outra cidade, mas consigo se deslocar</option>
+            <option value="Precisaria de estrutura de moradia">Precisaria de estrutura de moradia próxima</option>
+            <option value="Não sei ainda">Não sei ainda</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- BLOCO 5: COMO SOUBE -->
+      <div class="form-section-title" style="margin-top:8px">Como Soube do NB360</div>
+      <div class="form-row">
+        <div class="fg full">
+          <label class="flabel" for="origem">Como ficou sabendo?</label>
+          <select class="fselect" id="origem" required>
+            <option value="" disabled selected>Selecionar</option>
+            <option value="Instagram">Instagram</option>
+            <option value="Indicação de amigo/família">Indicação de amigo/família</option>
+            <option value="Anúncio no Meta (Facebook/Instagram)">Anúncio (Facebook/Instagram)</option>
+            <option value="Google">Google</option>
+            <option value="Já conhecia a Nova Beach">Já conhecia a Nova Beach</option>
+            <option value="Indicação de professor/técnico">Indicação de professor/técnico</option>
+            <option value="Outro">Outro</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="fg full">
+          <label class="flabel" for="obs">Por que seu filho deve ser selecionado? <span style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0">(opcional, mas ajuda muito)</span></label>
+          <textarea class="ftextarea" id="obs" placeholder="Conte a história esportiva, o que já conquistou, o que motiva ele a querer virar atleta..."></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-sub">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Enviar candidatura à seletiva
+      </button>
+      <p class="form-note">
+        Sua candidatura será analisada pela equipe NB360.<br>
+        Se o perfil for compatível, entramos em contato via WhatsApp para agendar a avaliação presencial.
+      </p>
+    </form>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="s">
+  <div class="s-inner">
+    <div class="s-label">Dúvidas Frequentes</div>
+    <h2>PERGUNTAS<br>E RESPOSTAS.</h2>
+    <div class="faqs">
+      <div class="faq-i">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          A inscrição na seletiva tem custo?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">Não. A inscrição e a participação na seletiva são completamente gratuitas. As condições de participação no programa são apresentadas somente aos atletas selecionados.</div>
+      </div>
+      <div class="faq-i">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Meu filho precisa ter experiência em beach tennis?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">Experiência prévia pode ser um diferencial, mas o critério principal é o potencial e o comprometimento do atleta. A seletiva avalia habilidade, postura e perfil de alto rendimento.</div>
+      </div>
+      <div class="faq-i">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Quantas vagas estão disponíveis?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">O número de vagas é limitado para garantir a qualidade do acompanhamento individual. As inscrições encerram assim que a capacidade da seletiva for atingida.</div>
+      </div>
+      <div class="faq-i">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Onde acontecem os treinos?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">Os treinamentos acontecem na Nova Beach (Av. Dr. Jesuíno Marcondes Machado, 869 — Nova Campinas, Campinas/SP) e no Instituto Mood, conforme a atividade programada.</div>
+      </div>
+      <div class="faq-i">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Como funciona o processo após a seletiva?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">Os atletas selecionados recebem contato direto da equipe NB360 via WhatsApp com todas as informações sobre o programa, condições de participação e início das atividades.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOATING WHATSAPP CTA — vai pro formulário -->
+<a href="#inscricao" class="fab-wa" id="fabWa"
+   onclick="if(typeof fbq!=='undefined'){fbq('track','InitiateCheckout',{content_name:'nb360_junior_fab_click'});}">
+  <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.94 11.94 0 0012 0C5.37 0 0 5.37 0 12a11.9 11.9 0 001.64 6.06L0 24l6.15-1.61A11.94 11.94 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.21-3.48-8.52zM12 21.82a9.83 9.83 0 01-5.02-1.38l-.36-.21-3.72.98.99-3.62-.23-.37a9.85 9.85 0 01-1.51-5.22c0-5.44 4.42-9.87 9.86-9.87A9.83 9.83 0 0121.86 12 9.83 9.83 0 0112 21.82zm5.4-7.36c-.29-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.66.15-.2.29-.76.96-.93 1.15-.17.2-.34.22-.63.07-.29-.15-1.24-.46-2.36-1.46a8.83 8.83 0 01-1.63-2.02c-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.51-.07-.15-.66-1.6-.91-2.19-.24-.57-.48-.49-.66-.5l-.56-.01a1.08 1.08 0 00-.78.37c-.27.29-1.02 1-1.02 2.44s1.05 2.83 1.2 3.02c.15.2 2.07 3.17 5.02 4.44.7.3 1.25.48 1.68.62.7.22 1.34.19 1.85.11.56-.08 1.75-.72 2-1.4.25-.7.25-1.28.17-1.4-.07-.13-.27-.2-.56-.34z"/></svg>
+  <span class="fab-label">Quero me inscrever</span>
+</a>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo"><img src="./nb360-logo.png" alt="NB360"></div>
+  <div class="foot-addr">Nova Beach Campinas</div>
+  <div class="foot-addr">Av. Dr. Jesuíno Marcondes Machado, 869 — Nova Campinas, Campinas/SP</div>
+  <a class="ig-inline" href="https://www.instagram.com/novabeach.cps/" target="_blank" rel="noopener" style="margin-top:10px;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg>
+    @novabeach.cps
+  </a>
+  <div class="foot-copy">© 2026 NB360 · Nova Beach · Todos os direitos reservados</div>
+</footer>
+
+<script>
+  function playHeroVideo(btn) {
+    var v = document.getElementById('heroVideo');
+    v.play();
+    btn.classList.add('hidden');
+    v.addEventListener('pause', function(){ btn.classList.remove('hidden'); });
+    v.addEventListener('ended', function(){ btn.classList.remove('hidden'); });
+  }
+
+  // Máscara BR (celular): (XX) 99999-9999 · também aceita fixo (XX) 9999-9999
+  function maskPhone(el) {
+    let v = el.value.replace(/\D/g, '').slice(0, 11);
+    if (v.length === 0) { el.value = ''; return; }
+    if (v.length <= 2) { el.value = '(' + v; return; }
+    if (v.length <= 6) { el.value = '(' + v.slice(0,2) + ') ' + v.slice(2); return; }
+    if (v.length <= 10) { el.value = '(' + v.slice(0,2) + ') ' + v.slice(2,6) + '-' + v.slice(6); return; }
+    el.value = '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
+  }
+
+  // Valida celular BR: DDD válido (11-99) + 8 ou 9 dígitos, celular deve começar com 9
+  function isValidBRPhone(v) {
+    const digits = v.replace(/\D/g, '');
+    if (digits.length < 10 || digits.length > 11) return false;
+    const ddd = parseInt(digits.slice(0, 2), 10);
+    if (ddd < 11 || ddd > 99) return false;
+    if (digits.length === 11 && digits[2] !== '9') return false;
+    return true;
+  }
+
+  function isValidEmail(v) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+  }
+
+  function toggleRanking(val) {
+    const show = ['Amador local','Circuito regional','Estadual/Nacional','Internacional'].indexOf(val) !== -1;
+    const el = document.getElementById('ranking_fg');
+    el.style.display = show ? 'flex' : 'none';
+    el.style.flexDirection = 'column';
+  }
+
+  // Mostra bloco de responsável só se atleta for menor de idade (<18)
+  function toggleResponsavel(val) {
+    const idadeNum = parseInt(val, 10);
+    const isAdulto = idadeNum >= 18;
+
+    const title = document.getElementById('resp_section_title');
+    const nomeRow = document.getElementById('resp_nome_row');
+    const nomeInput = document.getElementById('resp_nome');
+    const whatsLabel = document.getElementById('whatsapp_label');
+    const emailLabel = document.getElementById('email_label');
+
+    if (isAdulto) {
+      title.textContent = 'Contato';
+      nomeRow.style.display = 'none';
+      nomeInput.required = false;
+      nomeInput.value = '';
+      whatsLabel.textContent = 'WhatsApp (com DDD)';
+      emailLabel.textContent = 'E-mail';
+    } else {
+      title.textContent = 'Dados do Responsável';
+      nomeRow.style.display = '';
+      nomeInput.required = true;
+      whatsLabel.textContent = 'WhatsApp do responsável (com DDD)';
+      emailLabel.textContent = 'E-mail do responsável';
+    }
+  }
+
+  // Captura UTMs na carga e persiste na sessão
+  (function captureUtms(){
+    try {
+      var qs = new URLSearchParams(location.search);
+      var keys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+      var stored = JSON.parse(sessionStorage.getItem('nb360_utms') || '{}');
+      keys.forEach(function(k){
+        var v = qs.get(k);
+        if (v) stored[k] = v;
+      });
+      if (!stored.landing_url) stored.landing_url = location.href;
+      if (!stored.referrer && document.referrer) stored.referrer = document.referrer;
+      sessionStorage.setItem('nb360_utms', JSON.stringify(stored));
+    } catch(_) {}
+  })();
+
+  function getStoredUtms() {
+    try { return JSON.parse(sessionStorage.getItem('nb360_utms') || '{}'); }
+    catch(_) { return {}; }
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('.btn-sub');
+    form.classList.add('attempted');
+
+    // Validação HTML5 nativa (dispara balão em cada campo faltando/invalido)
+    if (!form.checkValidity()) {
+      const firstInvalid = form.querySelector(':invalid');
+      if (firstInvalid) {
+        firstInvalid.reportValidity();
+        firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return;
+    }
+
+    const nome       = document.getElementById('nome').value.trim();
+    const idade      = document.getElementById('idade').value;
+    const cidade     = document.getElementById('cidade').value.trim();
+    const estado     = document.getElementById('estado').value.trim().toUpperCase();
+    const respNome   = document.getElementById('resp_nome').value.trim();
+    const whatsapp   = document.getElementById('whatsapp').value.trim();
+    const email      = document.getElementById('email').value.trim();
+    const tempoBT    = document.getElementById('tempo_bt').value;
+    const freq       = document.getElementById('frequencia').value;
+    const nivel      = document.getElementById('nivel').value;
+    const professor  = document.getElementById('professor').value;
+    const competiu   = document.getElementById('competiu').value;
+    const ranking    = document.getElementById('ranking').value.trim();
+    const objetivo   = document.getElementById('objetivo').value;
+    const disp       = document.getElementById('disponibilidade').value;
+    const desloc     = document.getElementById('deslocamento').value;
+    const origem     = document.getElementById('origem').value;
+    const obs        = document.getElementById('obs').value.trim();
+
+    // Validações extras (email e telefone)
+    const emailField = document.getElementById('email');
+    const phoneField = document.getElementById('whatsapp');
+    if (!isValidEmail(email)) {
+      emailField.setCustomValidity('E-mail inválido. Ex: nome@dominio.com');
+      emailField.reportValidity();
+      emailField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    } else {
+      emailField.setCustomValidity('');
+    }
+    if (!isValidBRPhone(whatsapp)) {
+      phoneField.setCustomValidity('WhatsApp inválido. Use o formato (DD) 99999-9999 com celular começando em 9.');
+      phoneField.reportValidity();
+      phoneField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    } else {
+      phoneField.setCustomValidity('');
+    }
+    if (estado.length !== 2 || !/^[A-Z]{2}$/.test(estado)) {
+      const estadoField = document.getElementById('estado');
+      estadoField.setCustomValidity('Digite o estado com 2 letras (ex: SP)');
+      estadoField.reportValidity();
+      estadoField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    // Feedback visual
+    if (btn) { btn.disabled = true; btn.innerHTML = 'Enviando…'; }
+
+    const utms = getStoredUtms();
+    const payload = {
+      nome, idade, cidade, estado,
+      resp_nome: respNome, whatsapp, email,
+      tempo_bt: tempoBT, frequencia: freq, nivel, professor, competiu, ranking,
+      objetivo, disponibilidade: disp, deslocamento: desloc,
+      origem, obs,
+      utm_source: utms.utm_source || null,
+      utm_medium: utms.utm_medium || null,
+      utm_campaign: utms.utm_campaign || null,
+      utm_content: utms.utm_content || null,
+      utm_term: utms.utm_term || null,
+      referrer: utms.referrer || document.referrer || null,
+      landing_url: utms.landing_url || location.href
+    };
+
+    // Monta mensagem WhatsApp — bloco muda conforme atleta é menor ou maior de idade
+    const isAdulto = parseInt(idade, 10) >= 18;
+    let lines = [
+      '🏖️ *CANDIDATURA — NB360 Junior Seletiva Set/2026*',
+      '',
+      '*ATLETA*',
+      '👤 Nome: ' + nome,
+      '🎂 Idade: ' + idade + ' anos',
+      '📍 Cidade: ' + cidade + ' / ' + estado,
+      '',
+    ];
+    if (isAdulto) {
+      lines.push('*CONTATO*');
+      lines.push('📱 WhatsApp: ' + whatsapp);
+    } else {
+      lines.push('*RESPONSÁVEL*');
+      lines.push('👨‍👩‍👧 Nome: ' + respNome);
+      lines.push('📱 WhatsApp: ' + whatsapp);
+    }
+    if (email) lines.push('📧 E-mail: ' + email);
+    lines = lines.concat([
+      '',
+      '*TRAJETÓRIA NO BEACH TENNIS*',
+      '⏱️ Tempo de prática: ' + tempoBT,
+      '🔁 Frequência atual: ' + freq,
+      '📊 Nível: ' + nivel,
+      '👨‍🏫 Professor particular: ' + professor,
+      '🏆 Competição: ' + competiu,
+    ]);
+    if (ranking) lines.push('🥇 Melhor resultado: ' + ranking);
+    lines = lines.concat([
+      '',
+      '*COMPROMISSO*',
+      '🎯 Objetivo: ' + objetivo,
+      '📅 Disponibilidade 4x/sem: ' + disp,
+      '🚗 Deslocamento p/ Campinas: ' + desloc,
+      '',
+      '*ORIGEM*',
+      '📣 Como soube: ' + origem,
+    ]);
+    if (utms.utm_campaign) lines.push('🔗 Campanha: ' + utms.utm_campaign);
+    if (obs) lines.push('', '📝 *Por que deve ser selecionado:*', obs);
+    lines.push('', 'Aguardo retorno da equipe NB360 sobre a análise.');
+
+    const msg = encodeURIComponent(lines.join('\n'));
+
+    // Pixel event no submit
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Lead', { content_name: 'NB360 Junior Seletiva' });
+    }
+
+    // Tenta salvar no banco (com timeout de 4s pra nunca travar)
+    try {
+      await Promise.race([
+        fetch('/api/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }),
+        new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 4000))
+      ]);
+    } catch (err) {
+      console.warn('Lead save failed (continuando p/ WhatsApp):', err);
+    }
+
+    // Sempre redireciona pro tracker → dispara Pixel + abre WhatsApp
+    window.location.href = 'https://nova-beach-links.vercel.app/nb360-form/?m=' + msg;
+  }
+
+  function toggleFaq(el) {
+    const item = el.closest('.faq-i');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-i.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+
+</body>
+</html>
