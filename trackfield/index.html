@@ -122,7 +122,8 @@ a{color:inherit;text-decoration:none}
 .edition-head{padding:14px 20px;display:flex;align-items:center;justify-content:space-between;background:var(--navy);color:#fff}
 .edition-date{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:0.1em;color:var(--accent)}
 .edition-name{font-size:14px;font-weight:800;letter-spacing:-0.01em}
-.edition-embed{background:#000;min-height:500px;display:flex;align-items:center;justify-content:center}
+.edition-embed{background:#000;aspect-ratio:9/16;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.edition-embed video{width:100%;height:100%;object-fit:cover;display:block}
 .edition-embed blockquote{margin:0 !important;max-width:none !important;width:100% !important;border:0 !important;background:transparent !important}
 
 .brands{background:var(--navy);color:#fff;position:relative;overflow:hidden;background-image:url('../assets/pattern-raquetes.png');background-size:cover;background-position:center}
@@ -230,26 +231,19 @@ fbq('trackCustom','TrackFieldLandingView');
 
 <section class="section editions" id="edicoes">
   <div class="section-inner">
-    <div class="section-eyebrow">Edições anteriores</div>
-    <h2 class="section-title">4 edições em 2026 — <em>e tem mais vindo.</em></h2>
-    <p class="section-sub">De maio pra cá, o Track&Field Experience virou presença regular na nossa arena. Dá uma espiada no que já rolou:</p>
+    <div class="section-eyebrow">Edições e momentos</div>
+    <h2 class="section-title">Cada edição no beach é uma <em>atividade diferente.</em></h2>
+    <p class="section-sub">O Track&Field Experience já hospedou aqui funcional na areia, spinning, torneios de beach tennis, yoga, ativações de marca e muito mais. Dá uma espiada em alguns dos momentos:</p>
     <div class="editions-grid">
-      <div class="edition">
-        <div class="edition-head"><span class="edition-name">Nova Beach × T&F</span><span class="edition-date">17 MAI 2026</span></div>
-        <div class="edition-embed"><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DYkA4oJEXBk/" data-instgrm-version="14"></blockquote></div>
-      </div>
-      <div class="edition">
-        <div class="edition-head"><span class="edition-name">Nova Beach × T&F</span><span class="edition-date">27 JUN 2026</span></div>
-        <div class="edition-embed"><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DaTggominA9/" data-instgrm-version="14"></blockquote></div>
-      </div>
-      <div class="edition">
-        <div class="edition-head"><span class="edition-name">T&F Experience × Porto</span><span class="edition-date">02 AGO 2026</span></div>
-        <div class="edition-embed"><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DcUCkVfD7wh/" data-instgrm-version="14"></blockquote></div>
-      </div>
-      <div class="edition">
-        <div class="edition-head"><span class="edition-name">Nova Beach × T&F</span><span class="edition-date">27 SET 2026</span></div>
-        <div class="edition-embed"><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DPKbirIDZdM/" data-instgrm-version="14"></blockquote></div>
-      </div>
+      <div class="edition"><div class="edition-head"><span class="edition-name">T&F × Porto</span><span class="edition-date">02 AGO 2026</span></div><div class="edition-embed"><video src="edicoes/DcUCkVfD7wh.mp4" controls preload="metadata" playsinline></video></div></div>
+      <div class="edition"><div class="edition-head"><span class="edition-name">T&F Experience</span><span class="edition-date">27 JUN 2026</span></div><div class="edition-embed"><video src="edicoes/DaTggominA9.mp4" controls preload="metadata" playsinline></video></div></div>
+      <div class="edition"><div class="edition-head"><span class="edition-name">T&F Experience</span><span class="edition-date">2026</span></div><div class="edition-embed"><video src="edicoes/DZIPxJJElDj.mp4" controls preload="metadata" playsinline></video></div></div>
+      <div class="edition"><div class="edition-head"><span class="edition-name">T&F Experience</span><span class="edition-date">2026</span></div><div class="edition-embed"><video src="edicoes/DYxTXSIglU4.mp4" controls preload="metadata" playsinline></video></div></div>
+      <div class="edition"><div class="edition-head"><span class="edition-name">T&F Experience</span><span class="edition-date">17 MAI 2026</span></div><div class="edition-embed"><video src="edicoes/DYkA4oJEXBk.mp4" controls preload="metadata" playsinline></video></div></div>
+      <div class="edition"><div class="edition-head"><span class="edition-name">T&F Experience</span><span class="edition-date">2026</span></div><div class="edition-embed"><video src="edicoes/DYf2U0hNUIh.mp4" controls preload="metadata" playsinline></video></div></div>
+      <div class="edition"><div class="edition-head"><span class="edition-name">T&F Experience</span><span class="edition-date">27 SET 2026</span></div><div class="edition-embed"><video src="edicoes/DPKbirIDZdM.mp4" controls preload="metadata" playsinline></video></div></div>
+      <div class="edition"><div class="edition-head"><span class="edition-name">T&F Experience</span><span class="edition-date">2026</span></div><div class="edition-embed"><video src="edicoes/DPck7tXDCB-.mp4" controls preload="metadata" playsinline></video></div></div>
+      <div class="edition"><div class="edition-head"><span class="edition-name">T&F Experience</span><span class="edition-date">2026</span></div><div class="edition-embed"><video src="edicoes/DLsBw5bshZd.mp4" controls preload="metadata" playsinline></video></div></div>
     </div>
   </div>
 </section>
