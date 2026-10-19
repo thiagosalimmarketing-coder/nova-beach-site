@@ -238,7 +238,9 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 
 /* ===== MODALIDADES ===== */
 .modalidades{background:#fff}
-.mod-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.mod-grid{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px 0 24px;scroll-padding-left:0;margin-top:8px}
+.mod-grid::-webkit-scrollbar{display:none}
+.mod-grid > .mod-card{flex:0 0 min(320px,88vw);scroll-snap-align:start;scroll-snap-stop:always;display:flex;flex-direction:column}
 .mod-card{background:var(--sand);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;transition:all .18s;position:relative;overflow:hidden}
 .mod-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--navy-2)}
 .mod-card-icon{width:48px;height:48px;background:var(--navy);color:var(--accent);border-radius:12px;display:grid;place-items:center;font-size:22px;margin-bottom:18px;font-weight:800}
