@@ -17,7 +17,7 @@
 
 - Segunda a quinta: 07:00 às 22:00
 - Sexta: 07:00 às 21:00
-- Sábado: 08:00 às 16:00
+- Sábado: 08:00 às 13:00
 - Domingo: 09:00 às 15:00
 
 ## Estrutura física
