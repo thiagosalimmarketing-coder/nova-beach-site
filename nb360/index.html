@@ -161,7 +161,7 @@ h1 em{color:var(--green);font-style:normal}
 /* PARCEIROS DESTAQUE */
 .partners{display:flex;gap:20px;margin-top:28px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px 0 24px;scroll-padding-left:0}
 .partners::-webkit-scrollbar{display:none}
-.partners > .partner{flex:0 0 min(360px,88vw);scroll-snap-align:start;scroll-snap-stop:always;display:flex;flex-direction:column}
+.partners > .partner{flex:0 0 min(440px,92vw);scroll-snap-align:start;scroll-snap-stop:always;display:flex;flex-direction:column}
 
 /* AGENDA SEMANAL */
 .agenda-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
@@ -188,7 +188,7 @@ h1 em{color:var(--green);font-style:normal}
 .partner-logo img{max-height:100%;max-width:180px;width:auto;object-fit:contain}
 .partner-logo.circ img{height:72px;width:72px;object-fit:cover;border-radius:50%;border:3px solid #fff;box-shadow:var(--shadow)}
 .partner-mono{position:relative;z-index:1;width:72px;height:72px;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:var(--green);border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-size:30px;letter-spacing:1px;margin-bottom:22px;box-shadow:var(--shadow),inset 0 0 0 3px rgba(143,184,0,0.3)}
-.partner-video{position:relative;z-index:1;aspect-ratio:9/16;max-height:260px;width:100%;background:#000;border-radius:14px;overflow:hidden;margin-bottom:20px;box-shadow:var(--shadow)}
+.partner-video{position:relative;z-index:1;aspect-ratio:9/16;max-height:520px;width:100%;background:#000;border-radius:14px;overflow:hidden;margin-bottom:22px;box-shadow:var(--shadow)}
 .partner-video video{width:100%;height:100%;object-fit:cover;display:block}
 .partner-tag{position:relative;z-index:1;display:inline-block;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--green-dark);background:var(--green-dim);padding:4px 10px;border-radius:4px;margin-bottom:14px}
 .partner h3{position:relative;z-index:1;font-family:var(--display);font-size:28px;letter-spacing:0.5px;color:var(--navy);margin-bottom:8px;line-height:1}
@@ -435,7 +435,7 @@ fbq('trackCustom','NB360LandingView');
 
     <div class="partners">
       <div class="partner">
-        <div class="partner-video"><video src="videos/NB-Pro-web.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+        <div class="partner-video"><video src="videos/NB-Pro-web.mp4" muted loop playsinline preload="metadata" controls></video></div>
         <div class="partner-tag">Coordenação Técnica</div>
         <h3>JPE Carvalho</h3>
         <div class="partner-role">Método BTS · Coord. Tático</div>
@@ -447,7 +447,7 @@ fbq('trackCustom','NB360LandingView');
       </div>
 
       <div class="partner">
-        <div class="partner-video"><video src="videos/NB-avaliacao-fisica-web.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+        <div class="partner-video"><video src="videos/NB-avaliacao-fisica-web.mp4" muted loop playsinline preload="metadata" controls></video></div>
         <div class="partner-tag">Fisioterapia & Testes</div>
         <h3>Instituto Mood</h3>
         <div class="partner-role">Multidisciplinar Integrado</div>
@@ -459,7 +459,7 @@ fbq('trackCustom','NB360LandingView');
       </div>
 
       <div class="partner">
-        <div class="partner-video"><video src="./nb360-treino.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+        <div class="partner-video"><video src="./nb360-treino.mp4" muted loop playsinline preload="metadata" controls></video></div>
         <div class="partner-tag">Preparação Física</div>
         <h3>Lotus</h3>
         <div class="partner-role">PRPE Alto Rendimento</div>
@@ -471,7 +471,7 @@ fbq('trackCustom','NB360LandingView');
       </div>
 
       <div class="partner">
-        <div class="partner-video"><video src="./videos/NB-seletiva-sonhos-web.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+        <div class="partner-video"><video src="./videos/NB-seletiva-sonhos-web.mp4" muted loop playsinline preload="metadata" controls></video></div>
         <div class="partner-tag">Psicologia Esportiva</div>
         <h3>Felippe Cury</h3>
         <div class="partner-role">Psicólogo do CT NB360 · Professor Nova Beach</div>
