@@ -51,6 +51,21 @@ a{color:inherit;text-decoration:none}
 .nav-cta:hover{background:var(--navy-2);transform:translateY(-1px)}
 @media(max-width:720px){.nav-links{display:none}.nav-cta{padding:9px 14px;font-size:13px}}
 
+/* ===== DROPDOWN DO NAV (igual home) ===== */
+.nav-drop{position:relative}
+.nav-drop-trigger{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:14px;font-weight:600;color:var(--navy);background:none;border:0;cursor:pointer;padding:0;transition:color .15s;font-family:inherit}
+.nav-drop-trigger svg{opacity:0.6;transition:transform .18s}
+.nav-drop:hover .nav-drop-trigger,.nav-drop:focus-within .nav-drop-trigger{color:var(--accent-2)}
+.nav-drop:hover .nav-drop-trigger svg,.nav-drop:focus-within .nav-drop-trigger svg{transform:rotate(180deg);opacity:1}
+.nav-drop-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(6px);min-width:280px;background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:0 16px 48px rgba(14,30,66,0.14);padding:8px;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s,transform .18s,visibility .18s;z-index:60;margin-top:12px}
+.nav-drop-menu::before{content:'';position:absolute;top:-14px;left:0;right:0;height:14px}
+.nav-drop:hover .nav-drop-menu,.nav-drop:focus-within .nav-drop-menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.nav-drop-menu a{display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:10px;transition:background .12s;text-decoration:none}
+.nav-drop-menu a:hover{background:var(--sand)}
+.drop-title{font-size:14px;font-weight:800;color:var(--navy);line-height:1.3}
+.drop-sub{font-size:12px;color:var(--mute);font-weight:500;line-height:1.3}
+@media(max-width:720px){.nav-drop-menu{display:none}}
+
 /* ===== FOOTER (igual home) ===== */
 .footer{background:#070f24;color:rgba(255,255,255,0.65);padding:56px 24px 28px}
 .footer-inner{max-width:var(--maxw);margin:0 auto}
@@ -179,18 +194,67 @@ fbq('trackCustom','TrackFieldLandingView');
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="/" class="nav-logo" data-cta="link" target="_blank" rel="noopener">
-      <img src="../logo-novabeach.png" alt="Nova Beach Campinas">
+    <a href="/" class="nav-logo" data-cta="anchor">
+      <img src="/logo-novabeach.png" alt="Nova Beach Campinas">
     </a>
     <div class="nav-links">
-      <a href="/#modalidades" data-cta="link-#modalidades" target="_blank" rel="noopener">Modalidades</a>
-      <a href="/#planos" data-cta="link-#planos" target="_blank" rel="noopener">Planos</a>
-      <a href="/#extras" data-cta="link-#extras" target="_blank" rel="noopener">Extras</a>
-      <a href="/#estrutura" data-cta="link-#estrutura" target="_blank" rel="noopener">Estrutura</a>
-      <a href="/#professores" data-cta="link-#professores" target="_blank" rel="noopener">Professores</a>
-      <a href="/#contato" data-cta="link-#contato" target="_blank" rel="noopener">Contato</a>
+
+      <div class="nav-drop">
+        <button class="nav-drop-trigger" aria-haspopup="true">Modalidades <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu">
+          <a href="/#modalidades" data-cta="nav-drop"><span class="drop-title">Ver todas</span><span class="drop-sub">Secao completa</span></a>
+          <a href="/#modalidades" data-cta="nav-drop"><span class="drop-title">Beach Tennis</span><span class="drop-sub">Aulas regulares, adulto e infantil</span></a>
+          <a href="/#modalidades" data-cta="nav-drop"><span class="drop-title">Clubinho</span><span class="drop-sub">Jogos em rodízio pros jogadores regulares</span></a>
+          <a href="/#modalidades" data-cta="nav-drop"><span class="drop-title">Eventos</span><span class="drop-sub">Aniversario, confraternizacao, aulao</span></a>
+          <a href="/nb360/" data-cta="nav-drop"><span class="drop-title">CT NB360</span><span class="drop-sub">Centro de alto rendimento</span></a>
+          <a href="/#modalidades" data-cta="nav-drop"><span class="drop-title">Patrocinio</span><span class="drop-sub">Falar com o Alex</span></a>
+        </div>
+      </div>
+
+      <div class="nav-drop">
+        <button class="nav-drop-trigger" aria-haspopup="true">Planos <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu">
+          <a href="/#planos" data-cta="nav-drop"><span class="drop-title">Ver todos</span><span class="drop-sub">Secao completa</span></a>
+          <a href="/#planos" data-cta="nav-drop"><span class="drop-title">Aula experimental</span><span class="drop-sub">A partir de R$ 60</span></a>
+          <a href="/#planos" data-cta="nav-drop"><span class="drop-title">BT 1x/semana</span><span class="drop-sub">Plano regular</span></a>
+          <a href="/#planos" data-cta="nav-drop"><span class="drop-title">BT 2x/semana</span><span class="drop-sub">Plano regular</span></a>
+          <a href="/#planos" data-cta="nav-drop"><span class="drop-title">Clubinho mensal</span><span class="drop-sub">A partir de R$ 170/mes</span></a>
+        </div>
+      </div>
+
+      <div class="nav-drop">
+        <button class="nav-drop-trigger" aria-haspopup="true">Extras <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu">
+          <a href="/#extras" data-cta="nav-drop"><span class="drop-title">Ver todos</span><span class="drop-sub">Secao completa</span></a>
+          <a href="/#extras" data-cta="nav-drop"><span class="drop-title">Aula com Marta Magalhaes</span><span class="drop-sub">#21 do mundo · R$ 100</span></a>
+          <a href="/#extras" data-cta="nav-drop"><span class="drop-title">Day Use Individual</span><span class="drop-sub">R$ 45 / pessoa</span></a>
+          <a href="/#extras" data-cta="nav-drop"><span class="drop-title">Aluguel de quadra 1h</span><span class="drop-sub">R$ 240 / hora</span></a>
+          <a href="/#extras" data-cta="nav-drop"><span class="drop-title">Day Use Empresarial</span><span class="drop-sub">R$ 65 / pessoa</span></a>
+          <a href="/trackfield/" data-cta="nav-drop"><span class="drop-title">Track&amp;Field Experience</span><span class="drop-sub">Evento recorrente parceiro</span></a>
+        </div>
+      </div>
+
+      <div class="nav-drop">
+        <button class="nav-drop-trigger" aria-haspopup="true">Eventos <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu">
+          <a href="/eventos/" data-cta="nav-eventos"><span class="drop-title">Eventos gerais</span><span class="drop-sub">Aniversario, corporativo, aulao, day use</span></a>
+          <a href="/torneios/" data-cta="nav-torneios"><span class="drop-title">Torneios</span><span class="drop-sub">Rankings mensais + campeonatos internos</span></a>
+          <a href="/trackfield/" data-cta="nav-trackfield"><span class="drop-title">Track&amp;Field Experience</span><span class="drop-sub">Evento recorrente parceiro</span></a>
+        </div>
+      </div>
+
+      <div class="nav-drop">
+        <button class="nav-drop-trigger" aria-haspopup="true">Arena <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu">
+          <a href="/#estrutura" data-cta="anchor-estrutura"><span class="drop-title">Estrutura</span><span class="drop-sub">5 quadras, Bowa Bar, vestiarios</span></a>
+          <a href="/#professores" data-cta="anchor-professores"><span class="drop-title">Professores</span><span class="drop-sub">Time que compete ativamente</span></a>
+          <a href="/sobre/" data-cta="nav-sobre"><span class="drop-title">Sobre a Nova Beach</span><span class="drop-sub">Historia + fatos + contato completo</span></a>
+        </div>
+      </div>
+
+      <a href="/#contato" data-cta="anchor-contato">Contato</a>
     </div>
-    <a href="#final-cta" class="nav-cta" data-cta="tf-anchor-final-cta">Inscrever-se</a>
+    <a href="/" class="nav-cta" data-cta="nav-agendar">Agendar aula</a>
   </div>
 </nav>
 
@@ -280,7 +344,7 @@ fbq('trackCustom','TrackFieldLandingView');
     <div class="footer-grid">
       <div>
         <div class="footer-logo">
-          <img src="../logo-site-footer.png" alt="Nova Beach Campinas">
+          <img src="/logo-site-footer.png" alt="Nova Beach Campinas">
         </div>
         <p class="footer-tag">Arena de Beach Tennis em Nova Campinas. 5 quadras, Clubinho, eventos e Bowa Bar.</p>
         <div class="footer-social">
@@ -295,11 +359,10 @@ fbq('trackCustom','TrackFieldLandingView');
       <div>
         <h4>Modalidades</h4>
         <ul>
-          <li><a href="/#modalidades" data-cta="link-#modalidades" target="_blank" rel="noopener">Beach Tennis</a></li>
-          <li><a href="/#modalidades" data-cta="link-#modalidades" target="_blank" rel="noopener">Clubinho</a></li>
-          <li><a href="/#modalidades" data-cta="link-#modalidades" target="_blank" rel="noopener">Eventos</a></li>
-          <li><a href="/#modalidades" data-cta="link-#modalidades" target="_blank" rel="noopener">CT NB360</a></li>
-          <li><a href="/#modalidades" data-cta="link-#modalidades" target="_blank" rel="noopener">Patrocínio</a></li>
+          <li><a href="/#modalidades" data-cta="anchor-modalidades">Beach Tennis</a></li>
+          <li><a href="/#modalidades" data-cta="anchor-modalidades">Clubinho</a></li>
+          <li><a href="/#modalidades" data-cta="anchor-modalidades">Eventos</a></li>
+          <li><a href="/#modalidades" data-cta="anchor-modalidades">CT NB360</a></li>
         </ul>
       </div>
       <div>
@@ -323,8 +386,8 @@ fbq('trackCustom','TrackFieldLandingView');
     <div class="footer-bottom">
       <div>© 2026 Nova Beach Campinas · Todos os direitos reservados</div>
       <div class="footer-legal">
-        <a href="/" data-cta="link" target="_blank" rel="noopener">Voltar pro site</a>
-        <a href="/#contato" data-cta="link-#contato" target="_blank" rel="noopener">Contato</a>
+        <a href="/privacidade/" data-cta="link-privacidade">Política de privacidade</a>
+        <a href="#" data-cta="anchor">Termos de uso</a>
       </div>
     </div>
   </div>
