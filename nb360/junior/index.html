@@ -37,6 +37,16 @@
       --text-body: #334155;
       --muted: #6B7280;
       --border: rgba(28,46,110,0.10);
+      --border-strong: rgba(28,46,110,0.18);
+      --navy-2: #273e8f;
+      --maxw: 1180px;
+      /* Aliases pro nav/footer canônico Nova Beach */
+      --accent: var(--green);
+      --accent-2: var(--green-dark);
+      --sand: var(--bg);
+      --ink: var(--text);
+      --mute: var(--muted);
+      --mono: ui-monospace, 'JetBrains Mono', monospace;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -51,27 +61,32 @@
       overflow-x: hidden;
     }
 
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 14px 24px;
-      display: flex; align-items: center; justify-content: space-between; gap: 16px;
-      background: rgba(248,251,240,0.95);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
-      box-shadow: 0 1px 12px rgba(28,46,110,0.06);
-    }
-    .nav-logo img { height: 36px; width: auto; display: block; }
-    .nav-badge { font-size: 11px; font-weight: 500; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; }
-    .nav-cta {
-      padding: 9px 22px;
-      background: var(--navy); color: #fff;
-      font-weight: 700; font-size: 13px;
-      border-radius: 5px; text-decoration: none; letter-spacing: 0.3px;
-      white-space: nowrap;
-      transition: background .2s;
-    }
-    .nav-cta:hover { background: #152256; }
+    /* ===== NAV (igual home) ===== */
+    .nav{position:sticky;top:0;z-index:50;background:rgba(248,251,240,0.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .nav-logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:-0.02em;color:var(--navy)}
+    .nav-logo img{height:48px;width:auto;object-fit:contain}
+    .nav-links{display:flex;align-items:center;gap:28px}
+    .nav-links a{font-size:14px;font-weight:600;color:var(--navy);transition:color .15s}
+    .nav-links a:hover{color:var(--accent-2)}
+    .nav-cta{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;background:var(--navy);color:#fff;border-radius:999px;font-size:14px;font-weight:800;letter-spacing:-0.01em;transition:all .15s;box-shadow:0 4px 16px rgba(14,30,66,0.2);text-decoration:none}
+    .nav-cta:hover{background:var(--navy-2);transform:translateY(-1px)}
+    @media(max-width:720px){.nav-links{display:none}.nav-cta{padding:9px 14px;font-size:13px}}
+
+    /* ===== DROPDOWN DO NAV (igual home) ===== */
+    .nav-drop{position:relative}
+    .nav-drop-trigger{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:14px;font-weight:600;color:var(--navy);background:none;border:0;cursor:pointer;padding:0;transition:color .15s;font-family:inherit}
+    .nav-drop-trigger svg{opacity:0.6;transition:transform .18s}
+    .nav-drop:hover .nav-drop-trigger,.nav-drop:focus-within .nav-drop-trigger{color:var(--accent-2)}
+    .nav-drop:hover .nav-drop-trigger svg,.nav-drop:focus-within .nav-drop-trigger svg{transform:rotate(180deg);opacity:1}
+    .nav-drop-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(6px);min-width:280px;background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:0 16px 48px rgba(14,30,66,0.14);padding:8px;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s,transform .18s,visibility .18s;z-index:60;margin-top:12px}
+    .nav-drop-menu::before{content:'';position:absolute;top:-14px;left:0;right:0;height:14px}
+    .nav-drop:hover .nav-drop-menu,.nav-drop:focus-within .nav-drop-menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+    .nav-drop-menu a{display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:10px;transition:background .12s;text-decoration:none}
+    .nav-drop-menu a:hover{background:var(--sand)}
+    .drop-title{font-size:14px;font-weight:800;color:var(--navy);line-height:1.3}
+    .drop-sub{font-size:12px;color:var(--mute);font-weight:500;line-height:1.3}
+    @media(max-width:720px){.nav-drop-menu{display:none}}
 
     /* ── HERO ── */
     .hero {
@@ -424,14 +439,24 @@
     .faq-i.open .faq-a { max-height: 240px; padding: 0 22px 20px; }
     .faq-i.open .faq-q svg { transform: rotate(45deg); }
 
-    /* ── FOOTER ── */
-    footer {
-      padding: 44px 24px; border-top: 1px solid var(--border);
-      text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6px;
-    }
-    .foot-logo img { height: 52px; width: auto; display: block; margin: 0 auto 12px; }
-    .foot-addr { font-size: 13px; color: var(--muted); }
-    .foot-copy { font-size: 11px; color: rgba(28,46,110,.3); margin-top: 20px; }
+    /* ===== FOOTER (igual home) ===== */
+    .footer{background:#070f24;color:rgba(255,255,255,0.65);padding:56px 24px 28px}
+    .footer-inner{max-width:var(--maxw);margin:0 auto}
+    .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+    @media(max-width:800px){.footer-grid{grid-template-columns:1fr 1fr;gap:28px}}
+    .footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+    .footer-logo img{height:52px;width:auto;object-fit:contain}
+    .footer-tag{font-size:13px;line-height:1.5;max-width:280px}
+    .footer h4{font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#fff;margin-bottom:14px;font-family:var(--mono)}
+    .footer ul{list-style:none;display:grid;gap:8px}
+    .footer li a{font-size:14px;transition:color .15s}
+    .footer li a:hover{color:var(--accent)}
+    .footer-social{display:flex;gap:10px;margin-top:14px}
+    .footer-social a{width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:10px;display:grid;place-items:center;transition:all .15s}
+    .footer-social a:hover{background:var(--accent);color:var(--navy)}
+    .footer-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;font-family:var(--mono)}
+    .footer-legal{display:flex;gap:14px;flex-wrap:wrap}
+    .footer-legal a{color:rgba(255,255,255,0.5)}
 
     /* ── ALT BG ── */
     .bg-alt { background: var(--bg-alt); }
@@ -506,10 +531,71 @@
 </head>
 <body>
 
-<nav>
-  <div class="nav-logo"><img src="./nb360-logo.png" alt="NB360"></div>
-  <div class="nav-badge">Categoria Juvenil · Seletiva Set/2026</div>
-  <a href="#inscricao" class="nav-cta" data-cta="junior-anchor-inscricao">Inscrever-se</a>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" data-cta="anchor">
+      <img src="/logo-novabeach.png" alt="Nova Beach Campinas">
+    </a>
+    <div class="nav-links">
+
+      <div class="nav-drop">
+        <button class="nav-drop-trigger" aria-haspopup="true">Modalidades <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu">
+          <a href="/#modalidades" data-cta="nav-drop"><span class="drop-title">Ver todas</span><span class="drop-sub">Secao completa</span></a>
+          <a href="/#modalidades" data-cta="nav-drop"><span class="drop-title">Beach Tennis</span><span class="drop-sub">Aulas regulares, adulto e infantil</span></a>
+          <a href="/#modalidades" data-cta="nav-drop"><span class="drop-title">Clubinho</span><span class="drop-sub">Jogos em rodízio pros jogadores regulares</span></a>
+          <a href="/#modalidades" data-cta="nav-drop"><span class="drop-title">Eventos</span><span class="drop-sub">Aniversario, confraternizacao, aulao</span></a>
+          <a href="/nb360/" data-cta="nav-drop"><span class="drop-title">CT NB360</span><span class="drop-sub">Centro de alto rendimento</span></a>
+          <a href="/#modalidades" data-cta="nav-drop"><span class="drop-title">Patrocinio</span><span class="drop-sub">Falar com o Alex</span></a>
+        </div>
+      </div>
+
+      <div class="nav-drop">
+        <button class="nav-drop-trigger" aria-haspopup="true">Planos <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu">
+          <a href="/#planos" data-cta="nav-drop"><span class="drop-title">Ver todos</span><span class="drop-sub">Secao completa</span></a>
+          <a href="/#planos" data-cta="nav-drop"><span class="drop-title">Aula experimental</span><span class="drop-sub">A partir de R$ 60</span></a>
+          <a href="/#planos" data-cta="nav-drop"><span class="drop-title">BT 1x/semana</span><span class="drop-sub">Plano regular</span></a>
+          <a href="/#planos" data-cta="nav-drop"><span class="drop-title">BT 2x/semana</span><span class="drop-sub">Plano regular</span></a>
+          <a href="/#planos" data-cta="nav-drop"><span class="drop-title">Clubinho mensal</span><span class="drop-sub">A partir de R$ 170/mes</span></a>
+        </div>
+      </div>
+
+      <div class="nav-drop">
+        <button class="nav-drop-trigger" aria-haspopup="true">Extras <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu">
+          <a href="/#extras" data-cta="nav-drop"><span class="drop-title">Ver todos</span><span class="drop-sub">Secao completa</span></a>
+          <a href="/#extras" data-cta="nav-drop"><span class="drop-title">Aula com Marta Magalhaes</span><span class="drop-sub">#21 do mundo · R$ 100</span></a>
+          <a href="/#extras" data-cta="nav-drop"><span class="drop-title">Day Use Individual</span><span class="drop-sub">R$ 45 / pessoa</span></a>
+          <a href="/#extras" data-cta="nav-drop"><span class="drop-title">Aluguel de quadra 1h</span><span class="drop-sub">R$ 240 / hora</span></a>
+          <a href="/#extras" data-cta="nav-drop"><span class="drop-title">Day Use Empresarial</span><span class="drop-sub">R$ 65 / pessoa</span></a>
+          <a href="/trackfield/" data-cta="nav-drop"><span class="drop-title">Track&amp;Field Experience</span><span class="drop-sub">Evento recorrente parceiro</span></a>
+        </div>
+      </div>
+
+      <div class="nav-drop">
+        <button class="nav-drop-trigger" aria-haspopup="true">Eventos <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu">
+          <a href="/eventos/" data-cta="nav-eventos"><span class="drop-title">Eventos gerais</span><span class="drop-sub">Aniversario, corporativo, aulao, day use</span></a>
+          <a href="/torneios/" data-cta="nav-torneios"><span class="drop-title">Torneios</span><span class="drop-sub">Rankings mensais + campeonatos internos</span></a>
+          <a href="/trackfield/" data-cta="nav-trackfield"><span class="drop-title">Track&amp;Field Experience</span><span class="drop-sub">Evento recorrente parceiro</span></a>
+        </div>
+      </div>
+
+      <div class="nav-drop">
+        <button class="nav-drop-trigger" aria-haspopup="true">Arena <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-drop-menu">
+          <a href="/#estrutura" data-cta="anchor-estrutura"><span class="drop-title">Estrutura</span><span class="drop-sub">5 quadras, Bowa Bar, vestiarios</span></a>
+          <a href="/#professores" data-cta="anchor-professores"><span class="drop-title">Professores</span><span class="drop-sub">Time que compete ativamente</span></a>
+          <a href="/sobre/" data-cta="nav-sobre"><span class="drop-title">Sobre a Nova Beach</span><span class="drop-sub">Historia + fatos + contato completo</span></a>
+        </div>
+      </div>
+
+      <a href="/#contato" data-cta="anchor-contato">Contato</a>
+    </div>
+    <a href="/" class="nav-cta" data-cta="nav-agendar">Agendar aula</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -1136,15 +1222,58 @@
 </a>
 
 <!-- FOOTER -->
-<footer>
-  <div class="foot-logo"><img src="./nb360-logo.png" alt="NB360"></div>
-  <div class="foot-addr">Nova Beach Campinas</div>
-  <div class="foot-addr">Av. Dr. Jesuíno Marcondes Machado, 869 — Nova Campinas, Campinas/SP</div>
-  <a class="ig-inline" href="https://www.instagram.com/novabeach.cps/" target="_blank" rel="noopener" style="margin-top:10px;" data-cta="ig-novabeach.cps">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg>
-    @novabeach.cps
-  </a>
-  <div class="foot-copy">© 2026 NB360 · Nova Beach · Todos os direitos reservados</div>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="/logo-site-footer.png" alt="Nova Beach Campinas">
+        </div>
+        <p class="footer-tag">Arena de Beach Tennis em Nova Campinas. 5 quadras, Clubinho, eventos e Bowa Bar.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/novabeach.cps" target="_blank" rel="noopener" aria-label="Instagram" data-cta="ig-novabeach.cps">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.71 3.71 0 0 1-1.38-.9 3.71 3.71 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.88 5.88 0 0 0-2.13 1.38A5.88 5.88 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91a5.88 5.88 0 0 0 1.38 2.13 5.88 5.88 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.88 5.88 0 0 0 2.13-1.38 5.88 5.88 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 0 0-1.38-2.13A5.88 5.88 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zm0 10.16a4 4 0 1 1 4-4 4 4 0 0 1-4 4zm6.4-11.84a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/></svg>
+          </a>
+          <a href="https://facebook.com/novabeachcampinas" target="_blank" rel="noopener" aria-label="Facebook" data-cta="external-facebook-com">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4>Modalidades</h4>
+        <ul>
+          <li><a href="/#modalidades" data-cta="anchor-modalidades">Beach Tennis</a></li>
+          <li><a href="/#modalidades" data-cta="anchor-modalidades">Clubinho</a></li>
+          <li><a href="/#modalidades" data-cta="anchor-modalidades">Eventos</a></li>
+          <li><a href="/#modalidades" data-cta="anchor-modalidades">CT NB360</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Endereço</h4>
+        <ul>
+          <li>Av. Dr. Jesuíno Marcondes Machado, 869</li>
+          <li>Nova Campinas · Campinas-SP</li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Nova+Beach+Campinas+Av+Jesuino+Marcondes+Machado+869" target="_blank" rel="noopener" data-cta="external-www-google-com">Abrir no Google Maps →</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Horário</h4>
+        <ul>
+          <li>Seg a qui · 7h-22h</li>
+          <li>Sex · 7h-21h</li>
+          <li>Sáb · 8h-13h</li>
+          <li>Dom · 9h-15h</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Nova Beach Campinas · Todos os direitos reservados</div>
+      <div class="footer-legal">
+        <a href="/privacidade/" data-cta="link-privacidade">Política de privacidade</a>
+        <a href="#" data-cta="anchor">Termos de uso</a>
+      </div>
+    </div>
+  </div>
 </footer>
 
 <script>
